@@ -382,7 +382,93 @@
   /* ── TYPED CURSOR ── */
   .typed-cursor { animation:blink 0.8s step-end infinite; }
   @keyframes blink { 50%{opacity:0} }
+/* ── FLOATING CALL BUTTON ── */
+#call-float {
+  position: fixed;
+  bottom: 28px;
+  right: 24px;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+  border: 1px solid rgba(74,222,128,0.5);
+  color: #fff;
+  text-decoration: none;
+  padding: 14px 20px 14px 16px;
+  border-radius: 50px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.4), 0 0 0 0 rgba(34,197,94,0.5);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation: callEntrance 0.6s cubic-bezier(0.34,1.56,0.64,1) 2.4s both,
+             callPulse 2.8s ease-in-out 3s infinite;
+  white-space: nowrap;
+}
+#call-float:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 0 20px rgba(34,197,94,0.4);
+}
+#call-float:active { transform: scale(0.97); }
 
+.call-icon-wrap {
+  position: relative;
+  width: 36px; height: 36px;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.call-icon-ring {
+  position: absolute; inset: -4px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.4);
+  animation: ringExpand 2s ease-out 3.2s infinite;
+  opacity: 0;
+}
+.call-icon-ring:nth-child(2) { animation-delay: 3.7s; }
+.call-icon-svg {
+  width: 22px; height: 22px;
+  animation: phoneBounce 2.8s ease-in-out 3s infinite;
+}
+
+.call-text-block { display: flex; flex-direction: column; line-height: 1.2; }
+.call-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.6rem; letter-spacing: 0.12em;
+  text-transform: uppercase; color: rgba(255,255,255,0.8);
+}
+.call-number {
+  font-family: 'Exo 2', sans-serif;
+  font-size: 1rem; font-weight: 700; color: #fff;
+}
+
+/* Desktop: icon-only, expands on hover */
+@media (min-width: 769px) {
+  #call-float { padding: 14px 16px; }
+  .call-text-block {
+    overflow: hidden; max-width: 0; opacity: 0;
+    transition: max-width 0.35s ease, opacity 0.3s ease 0.05s;
+  }
+  #call-float:hover .call-text-block { max-width: 160px; opacity: 1; }
+  #call-float:hover { padding: 14px 20px 14px 16px; }
+}
+
+@keyframes callEntrance {
+  from { opacity: 0; transform: translateY(40px) scale(0.8); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes callPulse {
+  0%,100% { box-shadow: 0 4px 24px rgba(0,0,0,0.4), 0 0 0 0   rgba(34,197,94,0.5); }
+  50%      { box-shadow: 0 4px 24px rgba(0,0,0,0.4), 0 0 0 10px rgba(34,197,94,0); }
+}
+@keyframes ringExpand {
+  0%   { transform: scale(1);   opacity: 0.7; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+@keyframes phoneBounce {
+  0%,100% { transform: rotate(0deg); }
+  5%      { transform: rotate(-15deg); }
+  10%     { transform: rotate(15deg); }
+  15%     { transform: rotate(-10deg); }
+  20%     { transform: rotate(0deg); }
+}
 </style>
 </head>
 <body>
