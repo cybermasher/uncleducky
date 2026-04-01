@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Uncle Ducky — Richmond & Williamsburg's premier computer and electronics recycling service. Free pickup. No hassle. Recycle your old tech today.">
+<meta name="keywords" content="electronics recycling Richmond VA, computer recycling Williamsburg VA, e-waste pickup, tech disposal Virginia">
+<meta property="og:title" content="Uncle Ducky | Electronics Recycling – Richmond & Williamsburg, VA">
+<meta property="og:description" content="Stop letting old tech collect dust. We pick it up, wipe it clean, and recycle it responsibly. Serving Richmond & Williamsburg.">
+<title>Uncle Ducky | Electronics Recycling – Richmond & Williamsburg, VA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Exo+2:wght@300;400;600;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root {
+    --chrome-1: #e8edf2;
+    --chrome-2: #b8c8d8;
+    --chrome-3: #7a9ab5;
+    --blue-deep: #0a1628;
+    --blue-mid: #0d2847;
+    --blue-bright: #1565c0;
+    --blue-electric: #2196f3;
+    --blue-neon: #00b0ff;
+    --blue-ice: #e3f2fd;
+    --accent-cyan: #00e5ff;
+    --accent-white: #f0f7ff;
+    --glow: 0 0 20px rgba(0,229,255,0.4), 0 0 60px rgba(33,150,243,0.2);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Exo 2', sans-serif;
+    background: var(--blue-deep);
+    color: var(--accent-white);
+    overflow-x: hidden;
+  }
+
+  /* ── CHROME TEXTURE ── */
+  .chrome-tex {
+    background: linear-gradient(135deg,
+      #d0dde8 0%, #f0f4f8 18%, #b0c4d4 35%,
+      #e8eef4 50%, #90aec4 65%,
+      #d8e4ee 80%, #c0d0e0 100%);
+  }
+
+  .chrome-border {
+    border: 1px solid;
+    border-image: linear-gradient(135deg, #e8edf2, #7a9ab5, #b8c8d8, #e8edf2) 1;
+  }
+
+  /* ── GRID OVERLAY ── */
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(0,229,255,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,229,255,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* ── SCANLINES ── */
+  .scanlines::after {
+    content:'';
+    position:absolute; inset:0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.08) 2px,
+      rgba(0,0,0,0.08) 4px
+    );
+    pointer-events:none;
+    z-index:1;
+  }
+
+  /* ── NAV ── */
+  #navbar {
+    position:fixed; top:0; left:0; right:0; z-index:1000;
+    transition: all 0.4s ease;
+  }
+  #navbar.scrolled {
+    background: rgba(10,22,40,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,229,255,0.2);
+    box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+  }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(21,101,192,0.3) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(0,176,255,0.2) 0%, transparent 50%),
+      radial-gradient(ellipse at 60% 80%, rgba(0,229,255,0.1) 0%, transparent 40%),
+      linear-gradient(180deg, #0a1628 0%, #0d2847 60%, #0a1628 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ── FLOATING PARTICLES ── */
+  .particles { position:absolute; inset:0; overflow:hidden; pointer-events:none; }
+  .particle {
+    position:absolute;
+    width:3px; height:3px;
+    background: var(--accent-cyan);
+    border-radius:50%;
+    animation: floatUp linear infinite;
+    opacity:0;
+  }
+  @keyframes floatUp {
+    0%   { transform:translateY(100vh) translateX(0);    opacity:0;   }
+    10%  { opacity:0.8; }
+    90%  { opacity:0.4; }
+    100% { transform:translateY(-100px) translateX(30px); opacity:0; }
+  }
+
+  /* ── CIRCUIT LINES ── */
+  .circuit-line {
+    position:absolute;
+    height:1px;
+    background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+    animation: scanLine 4s linear infinite;
+    opacity:0.3;
+  }
+  @keyframes scanLine {
+    0%   { transform:translateX(-100%); opacity:0; }
+    50%  { opacity:0.5; }
+    100% { transform:translateX(200%);  opacity:0; }
+  }
+
+  /* ── GLITCH TEXT ── */
+  .glitch {
+    position:relative;
+    animation: glitch 5s infinite;
+  }
+  .glitch::before, .glitch::after {
+    content: attr(data-text);
+    position:absolute; top:0; left:0;
+    width:100%; height:100%;
+  }
+  .glitch::before {
+    color: var(--accent-cyan);
+    animation: glitch-1 5s infinite;
+    clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+  }
+  .glitch::after {
+    color: #ff6b6b;
+    animation: glitch-2 5s infinite;
+    clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+  }
+  @keyframes glitch   { 0%,95%,100% { transform:none; } 96% { transform:skewX(-1deg); } 97% { transform:skewX(1deg); } }
+  @keyframes glitch-1 { 0%,95%,100% { transform:none; opacity:0; } 96% { transform:translate(-3px,1px); opacity:1; } }
+  @keyframes glitch-2 { 0%,95%,100% { transform:none; opacity:0; } 97% { transform:translate(3px,-1px); opacity:1; } }
+
+  /* ── COUNTER ── */
+  .counter-num { font-family:'Bebas Neue',sans-serif; }
+  .mono        { font-family:'Share Tech Mono',monospace; }
+
+  /* ── CTA BUTTON ── */
+  .btn-primary {
+    background: linear-gradient(135deg, var(--blue-electric), var(--blue-neon));
+    border: 1px solid var(--accent-cyan);
+    color:#fff;
+    font-family:'Exo 2',sans-serif;
+    font-weight:700;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    padding:16px 40px;
+    position:relative;
+    overflow:hidden;
+    transition:all 0.3s ease;
+    cursor:pointer;
+    text-decoration:none;
+    display:inline-block;
+  }
+  .btn-primary::before {
+    content:'';
+    position:absolute; inset:0;
+    background: linear-gradient(135deg, var(--accent-cyan), var(--blue-electric));
+    opacity:0;
+    transition: opacity 0.3s ease;
+  }
+  .btn-primary:hover::before { opacity:1; }
+  .btn-primary:hover { box-shadow: var(--glow); transform:translateY(-2px); }
+  .btn-primary span { position:relative; z-index:1; }
+
+  .btn-chrome {
+    background: linear-gradient(135deg, #c0d0e0, #e8eef4, #90aec4);
+    color: var(--blue-deep);
+    border: none;
+    font-family:'Exo 2',sans-serif;
+    font-weight:700;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    padding:14px 36px;
+    transition:all 0.3s;
+    cursor:pointer;
+    display:inline-block;
+    text-decoration:none;
+  }
+  .btn-chrome:hover { box-shadow:0 6px 30px rgba(0,0,0,0.4); transform:translateY(-2px); }
+
+  /* ── CARD ── */
+  .card-glass {
+    background: rgba(13,40,71,0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0,229,255,0.15);
+    transition: all 0.3s ease;
+  }
+  .card-glass:hover {
+    border-color: rgba(0,229,255,0.4);
+    box-shadow: var(--glow);
+    transform:translateY(-4px);
+  }
+
+  /* ── URGENCY TICKER ── */
+  .ticker-wrap {
+    overflow:hidden;
+    background: linear-gradient(90deg, var(--blue-electric), var(--blue-neon), var(--accent-cyan), var(--blue-neon), var(--blue-electric));
+    background-size:300% 100%;
+    animation: gradShift 6s ease infinite;
+  }
+  @keyframes gradShift {
+    0%,100% { background-position:0% 50%; }
+    50%      { background-position:100% 50%; }
+  }
+  .ticker-inner {
+    display:flex;
+    animation: ticker 28s linear infinite;
+    white-space:nowrap;
+  }
+  @keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+  /* ── SECTION DIVIDER ── */
+  .divider-chrome {
+    height:2px;
+    background: linear-gradient(90deg, transparent, var(--chrome-2), var(--accent-cyan), var(--chrome-2), transparent);
+  }
+
+  /* ── FADE IN ON SCROLL ── */
+  .reveal {
+    opacity:0;
+    transform:translateY(30px);
+    transition:opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity:1;
+    transform:translateY(0);
+  }
+  .reveal-left {
+    opacity:0;
+    transform:translateX(-40px);
+    transition:opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal-left.visible { opacity:1; transform:translateX(0); }
+  .reveal-right {
+    opacity:0;
+    transform:translateX(40px);
+    transition:opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal-right.visible { opacity:1; transform:translateX(0); }
+
+  /* ── DUCK BOB ── */
+  @keyframes duckBob {
+    0%,100% { transform:translateY(0) rotate(-1deg); }
+    50%      { transform:translateY(-14px) rotate(1deg); }
+  }
+  .duck-bob { animation: duckBob 3.5s ease-in-out infinite; }
+
+  /* ── PULSE RING ── */
+  @keyframes pulseRing {
+    0%   { transform:scale(1);   opacity:0.6; }
+    100% { transform:scale(2.5); opacity:0;   }
+  }
+  .pulse-ring {
+    position:absolute;
+    border-radius:50%;
+    border:2px solid var(--accent-cyan);
+    animation:pulseRing 2.5s ease-out infinite;
+  }
+
+  /* ── PROGRESS BAR ── */
+  .progress-fill {
+    height:100%;
+    background: linear-gradient(90deg, var(--blue-electric), var(--accent-cyan));
+    border-radius:4px;
+    animation: fillBar 2s ease forwards;
+    transform-origin:left;
+  }
+  @keyframes fillBar { from{width:0} }
+
+  /* ── FORM ── */
+  .form-input {
+    background: rgba(13,40,71,0.8);
+    border: 1px solid rgba(0,229,255,0.3);
+    color:#fff;
+    padding:14px 18px;
+    width:100%;
+    font-family:'Exo 2',sans-serif;
+    font-size:1rem;
+    outline:none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  .form-input:focus {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 0 2px rgba(0,229,255,0.15);
+  }
+  .form-input::placeholder { color:rgba(255,255,255,0.35); }
+
+  /* ── BRAND HEADING ── */
+  .brand-font { font-family:'Bebas Neue',sans-serif; }
+
+  /* ── STEP CONNECTOR ── */
+  .step-line {
+    position:absolute;
+    top:28px; left:calc(50% + 28px);
+    width:calc(100% - 56px);
+    height:2px;
+    background: linear-gradient(90deg, var(--accent-cyan), var(--blue-electric));
+    opacity:0.4;
+  }
+
+  /* ── ZIGZAG ── */
+  .section-zz::before {
+    content:'';
+    display:block;
+    height:40px;
+    background: linear-gradient(135deg, var(--blue-mid) 25%, transparent 25%) -40px 0,
+                linear-gradient(225deg, var(--blue-mid) 25%, transparent 25%) -40px 0,
+                linear-gradient(315deg, var(--blue-mid) 25%, transparent 25%),
+                linear-gradient(45deg,  var(--blue-mid) 25%, transparent 25%);
+    background-size:80px 80px;
+    background-color: transparent;
+  }
+
+  /* ── STATS GRADIENT CARD ── */
+  .stat-card {
+    background: linear-gradient(135deg, rgba(21,101,192,0.3), rgba(0,176,255,0.15));
+    border: 1px solid rgba(0,229,255,0.2);
+    position:relative;
+    overflow:hidden;
+  }
+  .stat-card::before {
+    content:'';
+    position:absolute; top:-50%; left:-50%;
+    width:200%; height:200%;
+    background: conic-gradient(transparent 270deg, rgba(0,229,255,0.1) 360deg);
+    animation: rotateBg 8s linear infinite;
+  }
+  @keyframes rotateBg { to{ transform:rotate(360deg); } }
+  .stat-card > * { position:relative; z-index:1; }
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:768px){
+    .step-line{ display:none; }
+    h1.hero-title { font-size:clamp(3rem,14vw,6rem) !important; }
+  }
+
+  /* ── LOADING SCREEN ── */
+  #loader {
+    position:fixed; inset:0; z-index:9999;
+    background: var(--blue-deep);
+    display:flex; align-items:center; justify-content:center;
+    flex-direction:column; gap:20px;
+    transition:opacity 0.8s ease, visibility 0.8s ease;
+  }
+  #loader.hidden { opacity:0; visibility:hidden; }
+  .loader-bar-wrap {
+    width:240px; height:4px;
+    background:rgba(255,255,255,0.1);
+    border-radius:2px; overflow:hidden;
+  }
+  .loader-bar {
+    height:100%;
+    background: linear-gradient(90deg, var(--blue-electric), var(--accent-cyan));
+    animation: loadBar 1.8s ease forwards;
+  }
+  @keyframes loadBar { from{width:0} to{width:100%} }
+
+  /* ── TYPED CURSOR ── */
+  .typed-cursor { animation:blink 0.8s step-end infinite; }
+  @keyframes blink { 50%{opacity:0} }
+
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════
+     LOADER
+═══════════════════════════════════════════════ -->
+<div id="loader">
+  <img src="/images/logo.png" alt="Uncle Ducky" style="width:100px;height:100px;object-fit:contain;animation:duckBob 1s ease-in-out infinite;">
+  <p class="mono text-sm" style="color:var(--accent-cyan);">INITIALIZING Uncle Ducky...</p>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     URGENCY TICKER
+═══════════════════════════════════════════════ -->
+<div class="ticker-wrap py-2 fixed top-0 left-0 right-0 z-50" id="ticker">
+  <div class="ticker-inner">
+    <span class="mono text-xs font-bold text-white px-8">⚡ OLD TECH IS PILING UP — WE PICK IT UP FREE &nbsp;•&nbsp; SERVING RICHMOND &amp; WILLIAMSBURG VA &nbsp;•&nbsp; DATA WIPED. PLANET PROTECTED. &nbsp;•&nbsp; DON'T LET YESTERDAY'S TECH BECOME TOMORROW'S PROBLEM &nbsp;•&nbsp; FREE PICKUP. NO HASSLE. NO EXCUSES. &nbsp;•&nbsp;</span>
+    <span class="mono text-xs font-bold text-white px-8">⚡ OLD TECH IS PILING UP — WE PICK IT UP FREE &nbsp;•&nbsp; SERVING RICHMOND &amp; WILLIAMSBURG VA &nbsp;•&nbsp; DATA WIPED. PLANET PROTECTED. &nbsp;•&nbsp; DON'T LET YESTERDAY'S TECH BECOME TOMORROW'S PROBLEM &nbsp;•&nbsp; FREE PICKUP. NO HASSLE. NO EXCUSES. &nbsp;•&nbsp;</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     NAV
+═══════════════════════════════════════════════ -->
+<nav id="navbar" class="pt-8">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <img src="/images/logo.png" alt="Uncle Ducky Duck Logo" class="w-12 h-12 object-contain">
+      <div>
+        <div class="brand-font text-2xl leading-none" style="color:var(--accent-cyan); letter-spacing:0.06em;">Uncle Ducky</div>
+        <div class="mono text-xs" style="color:var(--chrome-2); letter-spacing:0.15em;">E-WASTE RECYCLING</div>
+      </div>
+    </div>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#problem"  class="mono text-sm hover:text-cyan-300 transition-colors" style="color:var(--chrome-2);">THE PROBLEM</a>
+      <a href="#how"      class="mono text-sm hover:text-cyan-300 transition-colors" style="color:var(--chrome-2);">HOW IT WORKS</a>
+      <a href="#services" class="mono text-sm hover:text-cyan-300 transition-colors" style="color:var(--chrome-2);">SERVICES</a>
+      <a href="#contact"  class="btn-primary text-sm"><span>GET FREE PICKUP</span></a>
+    </div>
+    <button id="menuBtn" class="md:hidden text-white p-2">
+      <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 6h18M3 12h18M3 18h18"/>
+      </svg>
+    </button>
+  </div>
+  <!-- mobile menu -->
+  <div id="mobileMenu" class="hidden md:hidden px-6 pb-4 flex flex-col gap-4" style="background:rgba(10,22,40,0.98);">
+    <a href="#problem"  class="mono text-sm py-2 border-b border-cyan-900" style="color:var(--chrome-2);">THE PROBLEM</a>
+    <a href="#how"      class="mono text-sm py-2 border-b border-cyan-900" style="color:var(--chrome-2);">HOW IT WORKS</a>
+    <a href="#services" class="mono text-sm py-2 border-b border-cyan-900" style="color:var(--chrome-2);">SERVICES</a>
+    <a href="#contact"  class="btn-primary text-sm text-center"><span>GET FREE PICKUP</span></a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════════ -->
+<section id="hero" class="grid-bg scanlines flex items-center relative">
+  <!-- Particles -->
+  <div class="particles" id="particles"></div>
+  <!-- Circuit Lines -->
+  <div class="circuit-line" style="top:25%;width:60%;left:0;"></div>
+  <div class="circuit-line" style="top:60%;width:45%;left:20%;animation-delay:2s;"></div>
+  <div class="circuit-line" style="top:80%;width:70%;left:5%;animation-delay:1s;"></div>
+
+  <div class="max-w-7xl mx-auto px-6 w-full py-32 md:py-0">
+    <div class="grid md:grid-cols-2 gap-12 items-center min-h-screen">
+      <!-- LEFT COPY -->
+      <div class="relative z-10">
+        <div class="mono text-xs mb-4 flex items-center gap-2" style="color:var(--accent-cyan);">
+          <span class="inline-block w-8 h-px" style="background:var(--accent-cyan);"></span>
+          RICHMOND &amp; WILLIAMSBURG, VA
+          <span class="inline-block w-8 h-px" style="background:var(--accent-cyan);"></span>
+        </div>
+
+        <h1 class="hero-title brand-font leading-none mb-4 glitch"
+            data-text="YOUR OLD TECH IS TAKING OVER."
+            style="font-size:clamp(3.5rem,7vw,6.5rem); color:#fff;">
+          YOUR OLD TECH IS TAKING OVER.
+        </h1>
+
+        <p class="text-lg mb-8 leading-relaxed" style="color:var(--chrome-2); max-width:500px;">
+          Closets stuffed with dead laptops. Garages full of ancient monitors. 
+          That pile of e-waste isn't going anywhere on its own — and it's a 
+          <strong style="color:#fff;">security risk</strong>, an 
+          <strong style="color:#fff;">environmental hazard</strong>, and a 
+          <strong style="color:#fff;">waste of space</strong>.
+          <br><br>
+          <span style="color:var(--accent-cyan);">We fix all three. Today.</span>
+        </p>
+
+        <div class="flex flex-wrap gap-4 mb-10">
+          <a href="#contact" class="btn-primary"><span>🦆 SCHEDULE FREE PICKUP</span></a>
+          <a href="#how"     class="btn-chrome">HOW IT WORKS →</a>
+        </div>
+
+        <!-- URGENCY BADGES -->
+        <div class="flex flex-wrap gap-4">
+          <div class="card-glass px-4 py-2 flex items-center gap-2">
+            <div class="w-2 h-2 rounded-full bg-green-400" style="animation:pulse 1.5s infinite;"></div>
+            <span class="mono text-xs" style="color:var(--chrome-1);">FREE PICKUP THIS WEEK</span>
+          </div>
+          <div class="card-glass px-4 py-2 flex items-center gap-2">
+            <span class="mono text-xs" style="color:var(--chrome-1);">🔒 DATA DESTRUCTION CERTIFIED</span>
+          </div>
+          <div class="card-glass px-4 py-2 flex items-center gap-2">
+            <span class="mono text-xs" style="color:var(--chrome-1);">♻️ 100% RESPONSIBLE RECYCLING</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT MASCOT -->
+      <div class="relative flex items-center justify-center">
+        <!-- Glow rings behind duck -->
+        <div class="absolute" style="width:320px;height:320px;">
+          <div class="pulse-ring" style="inset:0;animation-delay:0s;"></div>
+          <div class="pulse-ring" style="inset:0;animation-delay:1.2s;"></div>
+        </div>
+        <!-- Circular chrome frame -->
+        <div class="relative" style="
+          width:320px;height:320px;
+          border-radius:50%;
+          background: radial-gradient(circle, rgba(21,101,192,0.2) 0%, rgba(0,229,255,0.05) 70%, transparent 100%);
+          border:2px solid rgba(0,229,255,0.3);
+          display:flex; align-items:center; justify-content:center;
+          box-shadow: 0 0 60px rgba(0,229,255,0.2), inset 0 0 40px rgba(0,176,255,0.1);
+        ">
+          <img src="/images/logo.png" alt="Uncle Ducky mascot"
+               class="duck-bob"
+               style="width:260px;height:260px;object-fit:contain;filter:drop-shadow(0 0 20px rgba(0,229,255,0.4));">
+        </div>
+
+        <!-- Floating tech labels -->
+        <div class="absolute top-4 right-0 card-glass px-3 py-2 text-xs mono" style="color:var(--accent-cyan);animation:duckBob 4s ease-in-out infinite;">
+          LAPTOPS ✓
+        </div>
+        <div class="absolute bottom-8 left-0 card-glass px-3 py-2 text-xs mono" style="color:var(--accent-cyan);animation:duckBob 5s ease-in-out infinite 0.5s;">
+          MONITORS ✓
+        </div>
+        <div class="absolute top-1/2 right-[-20px] card-glass px-3 py-2 text-xs mono" style="color:var(--accent-cyan);animation:duckBob 3.8s ease-in-out infinite 1s;">
+          PHONES ✓
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll hint -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2" style="color:var(--chrome-3);">
+    <span class="mono text-xs tracking-widest">SCROLL DOWN</span>
+    <div style="animation:bounce 1.5s infinite;">
+      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l4 4 4-4"/></svg>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     STATS BAR
+═══════════════════════════════════════════════ -->
+<div style="background:linear-gradient(135deg, #0d2847, #0a1628); border-top:1px solid rgba(0,229,255,0.15); border-bottom:1px solid rgba(0,229,255,0.15);">
+  <div class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+    <div class="reveal">
+      <div class="counter-num text-5xl font-bold" style="color:var(--accent-cyan);" data-target="50000">0</div>
+      <div class="mono text-xs mt-1" style="color:var(--chrome-2);">DEVICES RECYCLED</div>
+    </div>
+    <div class="reveal" style="transition-delay:0.15s;">
+      <div class="counter-num text-5xl font-bold" style="color:var(--accent-cyan);" data-target="2">0</div>
+      <div class="mono text-xs mt-1" style="color:var(--chrome-2);">METRO AREAS SERVED</div>
+    </div>
+    <div class="reveal" style="transition-delay:0.3s;">
+      <div class="counter-num text-5xl font-bold" style="color:var(--accent-cyan);" data-target="100">0</div>
+      <div class="mono text-xs mt-1" style="color:var(--chrome-2);">% FREE PICKUP</div>
+    </div>
+    <div class="reveal" style="transition-delay:0.45s;">
+      <div class="counter-num text-5xl font-bold" style="color:var(--accent-cyan);" data-target="0">0</div>
+      <div class="mono text-xs mt-1" style="color:var(--chrome-2);">DAYS TO WAIT — CALL NOW</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     THE PROBLEM
+═══════════════════════════════════════════════ -->
+<section id="problem" style="background:linear-gradient(180deg,#0a1628 0%,#0d2847 100%);" class="py-24 relative">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="text-center mb-16 reveal">
+      <div class="mono text-xs mb-3" style="color:var(--accent-cyan);letter-spacing:0.2em;">THE PROBLEM IS REAL</div>
+      <h2 class="brand-font text-5xl md:text-7xl" style="color:#fff;">YOUR CLUTTER HAS A COST.</h2>
+      <div class="divider-chrome mx-auto mt-6" style="width:200px;"></div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- Card 1 -->
+      <div class="card-glass p-8 reveal" style="transition-delay:0.1s;">
+        <div class="text-5xl mb-4">🏚️</div>
+        <h3 class="brand-font text-2xl mb-3" style="color:var(--accent-cyan);">IT TAKES UP SPACE</h3>
+        <p style="color:var(--chrome-2);">That closet full of old laptops, tangled cables, and dusty towers isn't a storage room — it's a graveyard. Every square foot of your home or office deserves better.</p>
+        <div class="mt-6">
+          <div class="mono text-xs mb-2" style="color:var(--chrome-3);">AVERAGE AMERICAN HOME HAS:</div>
+          <div class="h-2 rounded" style="background:rgba(255,255,255,0.1);">
+            <div class="progress-fill rounded" style="width:72%;"></div>
+          </div>
+          <div class="mono text-xs mt-1" style="color:var(--accent-cyan);">24+ unused tech devices</div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="card-glass p-8 reveal" style="transition-delay:0.25s;">
+        <div class="text-5xl mb-4">☢️</div>
+        <h3 class="brand-font text-2xl mb-3" style="color:var(--accent-cyan);">IT'S A HEALTH HAZARD</h3>
+        <p style="color:var(--chrome-2);">Old electronics contain lead, mercury, and cadmium. When they end up in landfills — and they will if you ignore them — these toxins leach into soil and water, affecting your community.</p>
+        <div class="mt-6">
+          <div class="mono text-xs mb-2" style="color:var(--chrome-3);">E-WASTE IN VA LANDFILLS:</div>
+          <div class="h-2 rounded" style="background:rgba(255,255,255,0.1);">
+            <div class="progress-fill rounded" style="width:88%;"></div>
+          </div>
+          <div class="mono text-xs mt-1" style="color:var(--accent-cyan);">Growing every year</div>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="card-glass p-8 reveal" style="transition-delay:0.4s;">
+        <div class="text-5xl mb-4">🔓</div>
+        <h3 class="brand-font text-2xl mb-3" style="color:var(--accent-cyan);">YOUR DATA ISN'T SAFE</h3>
+        <p style="color:var(--chrome-2);">Deleted doesn't mean gone. Old hard drives still hold passwords, tax records, and personal photos. One dumpster dive by the wrong person and your identity is theirs.</p>
+        <div class="mt-6">
+          <div class="mono text-xs mb-2" style="color:var(--chrome-3);">DATA BREACHES FROM OLD DEVICES:</div>
+          <div class="h-2 rounded" style="background:rgba(255,255,255,0.1);">
+            <div class="progress-fill rounded" style="width:61%;"></div>
+          </div>
+          <div class="mono text-xs mt-1" style="color:var(--accent-cyan);">Entirely preventable</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pull quote -->
+    <div class="mt-16 reveal text-center">
+      <div class="card-glass inline-block px-10 py-8 max-w-3xl mx-auto" style="border-left:4px solid var(--accent-cyan);">
+        <p class="text-xl md:text-2xl font-light italic leading-relaxed" style="color:#fff;">
+          "The longer you wait, the bigger the pile. And the bigger the pile, the harder it is to deal with. 
+          <strong style="color:var(--accent-cyan);font-style:normal;">Stop waiting. We'll come to you.</strong>"
+        </p>
+        <div class="mono text-xs mt-4" style="color:var(--chrome-3);">— Uncle Ducky, RICHMOND & WILLIAMSBURG VA</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-chrome"></div>
+
+<!-- ═══════════════════════════════════════════════
+     HOW IT WORKS
+═══════════════════════════════════════════════ -->
+<section id="how" style="background:linear-gradient(180deg,#0d2847 0%,#0a1628 100%);" class="py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 reveal">
+      <div class="mono text-xs mb-3" style="color:var(--accent-cyan);letter-spacing:0.2em;">DEAD SIMPLE PROCESS</div>
+      <h2 class="brand-font text-5xl md:text-7xl" style="color:#fff;">3 STEPS. ZERO EFFORT.</h2>
+      <div class="divider-chrome mx-auto mt-6" style="width:200px;"></div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8 relative">
+      <!-- Step 1 -->
+      <div class="text-center reveal" style="transition-delay:0.1s; position:relative;">
+        <div class="relative inline-flex items-center justify-center w-16 h-16 rounded-full mb-6 mx-auto"
+             style="background:linear-gradient(135deg,var(--blue-electric),var(--accent-cyan)); box-shadow:var(--glow);">
+          <span class="brand-font text-2xl text-white">1</span>
+          <div class="step-line hidden md:block"></div>
+        </div>
+        <div class="text-5xl mb-4">📞</div>
+        <h3 class="brand-font text-2xl mb-3" style="color:var(--accent-cyan);">CALL OR CLICK</h3>
+        <p style="color:var(--chrome-2);">Fill out our quick form or give us a call. Tell us what you've got — computers, TVs, phones, printers, cables, servers. We take it all.</p>
+      </div>
+      <!-- Step 2 -->
+      <div class="text-center reveal" style="transition-delay:0.25s; position:relative;">
+        <div class="relative inline-flex items-center justify-center w-16 h-16 rounded-full mb-6 mx-auto"
+             style="background:linear-gradient(135deg,var(--blue-electric),var(--accent-cyan)); box-shadow:var(--glow);">
+          <span class="brand-font text-2xl text-white">2</span>
+          <div class="step-line hidden md:block"></div>
+        </div>
+        <div class="text-5xl mb-4">🚚</div>
+        <h3 class="brand-font text-2xl mb-3" style="color:var(--accent-cyan);">WE COME TO YOU</h3>
+        <p style="color:var(--chrome-2);">Our team shows up at your Richmond or Williamsburg location, loads everything up, and hauls it off. You don't lift a finger — or pay a dime.</p>
+      </div>
+      <!-- Step 3 -->
+      <div class="text-center reveal" style="transition-delay:0.4s;">
+        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full mb-6 mx-auto"
+             style="background:linear-gradient(135deg,var(--blue-electric),var(--accent-cyan)); box-shadow:var(--glow);">
+          <span class="brand-font text-2xl text-white">3</span>
+        </div>
+        <div class="text-5xl mb-4">🌍</div>
+        <h3 class="brand-font text-2xl mb-3" style="color:var(--accent-cyan);">IT'S HANDLED RIGHT</h3>
+        <p style="color:var(--chrome-2);">Drives are wiped or shredded. Devices are responsibly recycled. You get a certificate of data destruction. The planet — and your privacy — is protected.</p>
+      </div>
+    </div>
+
+    <!-- CTA mid-page -->
+    <div class="text-center mt-16 reveal">
+      <a href="#contact" class="btn-primary text-lg"><span>🦆 SCHEDULE YOUR FREE PICKUP NOW</span></a>
+      <p class="mono text-xs mt-4" style="color:var(--chrome-3);">NO COST. NO COMMITMENT. NO MORE CLUTTER.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider-chrome"></div>
+
+<!-- ═══════════════════════════════════════════════
+     SERVICES
+═══════════════════════════════════════════════ -->
+<section id="services" class="py-24" style="background: linear-gradient(180deg, #0a1628, #0d2847);">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      <!-- LEFT -->
+      <div class="reveal-left">
+        <div class="mono text-xs mb-3" style="color:var(--accent-cyan);letter-spacing:0.2em;">WHAT WE TAKE</div>
+        <h2 class="brand-font text-4xl md:text-6xl mb-6" style="color:#fff;">IF IT PLUGS IN,<br>WE TAKE IT.</h2>
+        <p class="mb-8" style="color:var(--chrome-2);">From single laptops to entire office cleanouts — residential and commercial pickups are always free for the Richmond and Williamsburg metro areas.</p>
+
+        <div class="grid grid-cols-2 gap-3">
+          {['💻 Laptops & Desktops','🖥️ Monitors & Screens','📱 Phones & Tablets','🖨️ Printers & Fax Machines','📺 TVs & Electronics','🔌 Cables & Peripherals','🖧 Servers & Networking','🔋 Batteries & UPS Units'].map(item => `
+          <div class="card-glass px-3 py-3 flex items-center gap-2">
+            <span class="text-sm">${item.split(' ')[0]}</span>
+            <span class="text-sm" style="color:var(--chrome-1);">${item.split(' ').slice(1).join(' ')}</span>
+          </div>
+          `).join('')}
+        </div>
+      </div>
+
+      <!-- RIGHT — SERVICE CARDS -->
+      <div class="space-y-4 reveal-right">
+        <div class="stat-card p-6 rounded-lg">
+          <div class="flex items-start gap-4">
+            <div class="text-3xl">🏠</div>
+            <div>
+              <h4 class="brand-font text-xl mb-1" style="color:var(--accent-cyan);">RESIDENTIAL PICKUP</h4>
+              <p class="text-sm" style="color:var(--chrome-2);">Cleaning out a garage, spare room, or office? We handle single items to full truckloads. Always free. Always local.</p>
+            </div>
+          </div>
+        </div>
+        <div class="stat-card p-6 rounded-lg">
+          <div class="flex items-start gap-4">
+            <div class="text-3xl">🏢</div>
+            <div>
+              <h4 class="brand-font text-xl mb-1" style="color:var(--accent-cyan);">COMMERCIAL & OFFICE CLEANOUTS</h4>
+              <p class="text-sm" style="color:var(--chrome-2);">Upgrading your fleet? Closing a location? We coordinate bulk pickups for businesses of any size with zero disruption to your workflow.</p>
+            </div>
+          </div>
+        </div>
+        <div class="stat-card p-6 rounded-lg">
+          <div class="flex items-start gap-4">
+            <div class="text-3xl">🔐</div>
+            <div>
+              <h4 class="brand-font text-xl mb-1" style="color:var(--accent-cyan);">CERTIFIED DATA DESTRUCTION</h4>
+              <p class="text-sm" style="color:var(--chrome-2);">Every hard drive is wiped to DOD standards or physically shredded. You receive a certificate of destruction for your records and compliance needs.</p>
+            </div>
+          </div>
+        </div>
+        <div class="stat-card p-6 rounded-lg">
+          <div class="flex items-start gap-4">
+            <div class="text-3xl">🎓</div>
+            <div>
+              <h4 class="brand-font text-xl mb-1" style="color:var(--accent-cyan);">SCHOOL & NONPROFIT PROGRAMS</h4>
+              <p class="text-sm" style="color:var(--chrome-2);">We work with schools, churches, and nonprofits throughout Richmond and Williamsburg to responsibly retire donated and surplus technology.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     URGENCY SECTION
+═══════════════════════════════════════════════ -->
+<section style="background:linear-gradient(135deg, var(--blue-bright), var(--blue-electric), var(--blue-neon));" class="py-16 relative overflow-hidden">
+  <div class="absolute inset-0 grid-bg opacity-20"></div>
+  <div class="max-w-4xl mx-auto px-6 text-center relative z-10 reveal">
+    <div class="text-6xl mb-4 duck-bob inline-block">🦆</div>
+    <h2 class="brand-font text-4xl md:text-6xl mb-4 text-white">THE PILE ISN'T GOING TO MOVE ITSELF.</h2>
+    <p class="text-lg mb-8 text-blue-100">Every week you wait is another week your old tech sits there — taking up space, leaching toxins, and risking your data. The fix takes 60 seconds.</p>
+    <a href="#contact" class="btn-chrome text-lg font-bold">YES, COME GET MY JUNK →</a>
+  </div>
+</section>
+
+<div class="divider-chrome"></div>
+
+<!-- ═══════════════════════════════════════════════
+     WHY US / TRUST
+═══════════════════════════════════════════════ -->
+<section class="py-24" style="background:linear-gradient(180deg,#0d2847,#0a1628);">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 reveal">
+      <div class="mono text-xs mb-3" style="color:var(--accent-cyan);letter-spacing:0.2em;">WHY Uncle Ducky</div>
+      <h2 class="brand-font text-5xl md:text-7xl" style="color:#fff;">LOCAL. TRUSTED. FAST.</h2>
+      <div class="divider-chrome mx-auto mt-6" style="width:200px;"></div>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="text-center card-glass p-8 reveal" style="transition-delay:0.1s;">
+        <div class="text-5xl mb-4">📍</div>
+        <h4 class="brand-font text-xl mb-2" style="color:var(--accent-cyan);">100% LOCAL</h4>
+        <p class="text-sm" style="color:var(--chrome-2);">We're your neighbors in Richmond and Williamsburg. Your money stays local and your tech stays out of overseas dumps.</p>
+      </div>
+      <div class="text-center card-glass p-8 reveal" style="transition-delay:0.2s;">
+        <div class="text-5xl mb-4">⚡</div>
+        <h4 class="brand-font text-xl mb-2" style="color:var(--accent-cyan);">FAST RESPONSE</h4>
+        <p class="text-sm" style="color:var(--chrome-2);">Same-week pickups available. Submit your request today and we'll have a date on the calendar before end of business.</p>
+      </div>
+      <div class="text-center card-glass p-8 reveal" style="transition-delay:0.3s;">
+        <div class="text-5xl mb-4">♻️</div>
+        <h4 class="brand-font text-xl mb-2" style="color:var(--accent-cyan);">ZERO LANDFILL</h4>
+        <p class="text-sm" style="color:var(--chrome-2);">Everything we collect is either refurbished, recycled, or responsibly processed. Nothing goes into a landfill. Period.</p>
+      </div>
+      <div class="text-center card-glass p-8 reveal" style="transition-delay:0.4s;">
+        <div class="text-5xl mb-4">💰</div>
+        <h4 class="brand-font text-xl mb-2" style="color:var(--accent-cyan);">ALWAYS FREE</h4>
+        <p class="text-sm" style="color:var(--chrome-2);">Pickup is always free. No hidden fees, no minimum load, no surprises. Just show us where the pile is.</p>
+      </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="mt-16 grid md:grid-cols-3 gap-6">
+      <div class="card-glass p-6 reveal" style="transition-delay:0.1s;">
+        <div class="flex gap-1 mb-3" style="color:var(--accent-cyan);">★★★★★</div>
+        <p class="text-sm italic mb-4" style="color:var(--chrome-1);">"Had a garage full of old office equipment from my business. Uncle Ducky came out the same week, hauled everything away, and gave me a certificate for all the hard drives. Couldn't be easier."</p>
+        <div class="mono text-xs" style="color:var(--chrome-3);">— MICHAEL R. | RICHMOND, VA</div>
+      </div>
+      <div class="card-glass p-6 reveal" style="transition-delay:0.25s;">
+        <div class="flex gap-1 mb-3" style="color:var(--accent-cyan);">★★★★★</div>
+        <p class="text-sm italic mb-4" style="color:var(--chrome-1);">"Our school had 40 old computers sitting in a storage room for years. Uncle Ducky handled the entire pickup and provided documentation for our records. Highly recommended."</p>
+        <div class="mono text-xs" style="color:var(--chrome-3);">— SARAH K. | WILLIAMSBURG, VA</div>
+      </div>
+      <div class="card-glass p-6 reveal" style="transition-delay:0.4s;">
+        <div class="flex gap-1 mb-3" style="color:var(--accent-cyan);">★★★★★</div>
+        <p class="text-sm italic mb-4" style="color:var(--chrome-1);">"I was nervous about my old laptop's data. They wiped it on-site and showed me the process. Felt completely at ease. Plus they took the printer that's been haunting my spare bedroom since 2009."</p>
+        <div class="mono text-xs" style="color:var(--chrome-3);">— DAVID T. | HENRICO, VA</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-chrome"></div>
+
+<!-- ═══════════════════════════════════════════════
+     EMAIL CAPTURE / CONTACT
+═══════════════════════════════════════════════ -->
+<section id="contact" class="py-24 relative overflow-hidden" style="background:linear-gradient(135deg,#0a1628 0%,#0d2847 50%,#0a1628 100%);">
+  <div class="absolute inset-0 grid-bg opacity-30"></div>
+  <!-- Floating glow orb -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" style="
+    width:600px;height:600px;border-radius:50%;
+    background:radial-gradient(circle, rgba(0,229,255,0.05) 0%, transparent 70%);
+    pointer-events:none;"></div>
+
+  <div class="max-w-3xl mx-auto px-6 relative z-10">
+    <div class="text-center mb-12 reveal">
+      <div class="inline-block duck-bob mb-4">
+        <img src="/images/logo.png" alt="Uncle Ducky" style="width:80px;height:80px;object-fit:contain;filter:drop-shadow(0 0 15px rgba(0,229,255,0.5));">
+      </div>
+      <div class="mono text-xs mb-3" style="color:var(--accent-cyan);letter-spacing:0.2em;">ONE FORM. ZERO HASSLE.</div>
+      <h2 class="brand-font text-4xl md:text-6xl mb-4" style="color:#fff;">READY TO CLEAR THE CLUTTER?</h2>
+      <p style="color:var(--chrome-2);">Tell us about your tech pile. We'll reach out within 24 hours to schedule your <strong style="color:#fff;">free pickup</strong>. Richmond &amp; Williamsburg only.</p>
+    </div>
+
+    <!-- FORM -->
+    <div class="card-glass p-8 md:p-12 reveal">
+      <form id="contactForm" onsubmit="handleSubmit(event)">
+        <div class="grid md:grid-cols-2 gap-6 mb-6">
+          <div>
+            <label class="mono text-xs block mb-2" style="color:var(--accent-cyan);">YOUR NAME *</label>
+            <input type="text" class="form-input" placeholder="First & Last Name" required>
+          </div>
+          <div>
+            <label class="mono text-xs block mb-2" style="color:var(--accent-cyan);">EMAIL ADDRESS *</label>
+            <input type="email" class="form-input" placeholder="you@email.com" required>
+          </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6 mb-6">
+          <div>
+            <label class="mono text-xs block mb-2" style="color:var(--accent-cyan);">PHONE NUMBER</label>
+            <input type="tel" class="form-input" placeholder="(804) 555-0100">
+          </div>
+          <div>
+            <label class="mono text-xs block mb-2" style="color:var(--accent-cyan);">YOUR CITY *</label>
+            <select class="form-input" required style="cursor:pointer;">
+              <option value="" disabled selected>Select your area...</option>
+              <option>Richmond</option>
+              <option>Henrico County</option>
+              <option>Chesterfield County</option>
+              <option>Williamsburg</option>
+              <option>James City County</option>
+              <option>York County</option>
+              <option>Other nearby area</option>
+            </select>
+          </div>
+        </div>
+        <div class="mb-6">
+          <label class="mono text-xs block mb-2" style="color:var(--accent-cyan);">WHAT ARE YOU RECYCLING? *</label>
+          <textarea class="form-input" rows="4" placeholder="e.g., 3 laptops, 2 monitors, a box of cables, an ancient desktop that still runs Windows XP..." required style="resize:vertical;"></textarea>
+        </div>
+        <div class="mb-8">
+          <label class="mono text-xs block mb-3" style="color:var(--accent-cyan);">PICKUP TYPE</label>
+          <div class="flex flex-wrap gap-4">
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="pickup" value="residential" checked style="accent-color:var(--accent-cyan);">
+              <span class="text-sm" style="color:var(--chrome-1);">Residential</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="pickup" value="commercial" style="accent-color:var(--accent-cyan);">
+              <span class="text-sm" style="color:var(--chrome-1);">Commercial / Office</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="pickup" value="nonprofit" style="accent-color:var(--accent-cyan);">
+              <span class="text-sm" style="color:var(--chrome-1);">School / Nonprofit</span>
+            </label>
+          </div>
+        </div>
+        <!-- Urgency nudge -->
+        <div class="mb-8 p-4 rounded" style="background:rgba(0,229,255,0.08);border:1px solid rgba(0,229,255,0.2);">
+          <div class="flex items-center gap-3">
+            <div class="w-3 h-3 rounded-full bg-green-400 flex-shrink-0" style="animation:pulse 1.5s infinite;"></div>
+            <p class="mono text-xs" style="color:var(--accent-cyan);">⚡ SAME-WEEK PICKUPS AVAILABLE — LIMITED SLOTS THIS WEEK</p>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-primary w-full text-center text-lg justify-center">
+          <span>🦆 SCHEDULE MY FREE PICKUP →</span>
+        </button>
+        <p class="mono text-xs text-center mt-4" style="color:var(--chrome-3);">No spam. No sales calls. Just a pickup confirmation within 24 hours.</p>
+      </form>
+
+      <!-- Success message -->
+      <div id="successMsg" class="hidden text-center py-8">
+        <div class="text-6xl mb-4 duck-bob inline-block">🦆</div>
+        <h3 class="brand-font text-3xl mb-3" style="color:var(--accent-cyan);">YOU'RE ON THE LIST!</h3>
+        <p style="color:var(--chrome-2);">We'll be in touch within 24 hours to lock in your pickup time. Your clutter's days are numbered.</p>
+      </div>
+    </div>
+
+    <!-- Trust signals below form -->
+    <div class="mt-8 grid grid-cols-3 gap-4 text-center reveal">
+      <div class="mono text-xs" style="color:var(--chrome-3);">
+        <div class="text-lg mb-1">🔒</div>NO SPAM EVER
+      </div>
+      <div class="mono text-xs" style="color:var(--chrome-3);">
+        <div class="text-lg mb-1">📋</div>DATA DESTRUCTION CERT
+      </div>
+      <div class="mono text-xs" style="color:var(--chrome-3);">
+        <div class="text-lg mb-1">🆓</div>ALWAYS FREE PICKUP
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════ -->
+<footer style="background:#060e1a; border-top:1px solid rgba(0,229,255,0.1);" class="py-12">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-4 gap-8 mb-8">
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-3 mb-4">
+          <img src="/images/logo.png" alt="Uncle Ducky" class="w-10 h-10 object-contain">
+          <div>
+            <div class="brand-font text-2xl" style="color:var(--accent-cyan);">Uncle Ducky</div>
+            <div class="mono text-xs" style="color:var(--chrome-3);">ELECTRONICS RECYCLING</div>
+          </div>
+        </div>
+        <p class="text-sm mb-4" style="color:var(--chrome-3);">Serving Richmond and Williamsburg, Virginia with free, responsible electronics recycling and certified data destruction.</p>
+        <div class="mono text-xs" style="color:var(--chrome-3);">Richmond &amp; Williamsburg, Virginia</div>
+      </div>
+      <div>
+        <div class="mono text-xs mb-4" style="color:var(--accent-cyan);">QUICK LINKS</div>
+        <div class="flex flex-col gap-2">
+          <a href="#problem"  class="text-sm hover:text-white transition-colors" style="color:var(--chrome-3);">The Problem</a>
+          <a href="#how"      class="text-sm hover:text-white transition-colors" style="color:var(--chrome-3);">How It Works</a>
+          <a href="#services" class="text-sm hover:text-white transition-colors" style="color:var(--chrome-3);">Services</a>
+          <a href="#contact"  class="text-sm hover:text-white transition-colors" style="color:var(--chrome-3);">Schedule Pickup</a>
+        </div>
+      </div>
+      <div>
+        <div class="mono text-xs mb-4" style="color:var(--accent-cyan);">WE ACCEPT</div>
+        <div class="flex flex-col gap-1 text-sm" style="color:var(--chrome-3);">
+          <span>Computers &amp; Laptops</span>
+          <span>Monitors &amp; TVs</span>
+          <span>Phones &amp; Tablets</span>
+          <span>Printers &amp; Copiers</span>
+          <span>Servers &amp; Networking</span>
+          <span>Cables &amp; Accessories</span>
+        </div>
+      </div>
+    </div>
+    <div class="divider-chrome mb-6"></div>
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="mono text-xs" style="color:var(--chrome-3);">© 2025 Uncle Ducky | RICHMOND &amp; WILLIAMSBURG, VA | ALL RIGHTS RESERVED</p>
+      <p class="mono text-xs" style="color:var(--chrome-3);">RESPONSIBLE RECYCLING • DATA SECURITY • LOCAL COMMUNITY</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════════ -->
+<script>
+// ── LOADER ──
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('loader').classList.add('hidden');
+  }, 2000);
+});
+
+// ── PARTICLES ──
+const pContainer = document.getElementById('particles');
+for (let i = 0; i < 30; i++) {
+  const p = document.createElement('div');
+  p.className = 'particle';
+  p.style.left = Math.random() * 100 + '%';
+  p.style.animationDuration = (6 + Math.random() * 10) + 's';
+  p.style.animationDelay = (Math.random() * 8) + 's';
+  p.style.width = p.style.height = (1 + Math.random() * 3) + 'px';
+  pContainer.appendChild(p);
+}
+
+// ── NAVBAR SCROLL ──
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 80);
+});
+
+// ── MOBILE MENU ──
+document.getElementById('menuBtn').addEventListener('click', () => {
+  document.getElementById('mobileMenu').classList.toggle('hidden');
+});
+
+// ── CLOSE MOBILE MENU ON LINK CLICK ──
+document.querySelectorAll('#mobileMenu a').forEach(link => {
+  link.addEventListener('click', () => document.getElementById('mobileMenu').classList.add('hidden'));
+});
+
+// ── REVEAL ON SCROLL ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
+
+// ── COUNTERS ──
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    const target = parseInt(el.dataset.target);
+    if (target === 0) { el.textContent = '0'; return; }
+    const duration = 2000;
+    const step = target / (duration / 16);
+    let current = 0;
+    const timer = setInterval(() => {
+      current = Math.min(current + step, target);
+      el.textContent = Math.floor(current).toLocaleString() + (target >= 1000 ? '+' : (target === 100 ? '%' : ''));
+      if (current >= target) clearInterval(timer);
+    }, 16);
+    counterObserver.unobserve(el);
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe(el));
+
+// ── SERVICE ITEMS (fill from JS) ──
+const serviceItems = document.querySelector('.grid.grid-cols-2.gap-3');
+if (serviceItems) {
+  const items = [
+    '💻 Laptops & Desktops','🖥️ Monitors & Screens',
+    '📱 Phones & Tablets','🖨️ Printers & Fax Machines',
+    '📺 TVs & Electronics','🔌 Cables & Peripherals',
+    '🖧 Servers & Networking','🔋 Batteries & UPS Units'
+  ];
+  serviceItems.innerHTML = items.map(item => {
+    const parts = item.split(' ');
+    return `<div class="card-glass px-3 py-3 flex items-center gap-2">
+      <span>${parts[0]}</span>
+      <span class="text-sm" style="color:var(--chrome-1);">${parts.slice(1).join(' ')}</span>
+    </div>`;
+  }).join('');
+}
+
+// ── FORM SUBMIT ──
+function handleSubmit(e) {
+  e.preventDefault();
+  document.getElementById('contactForm').style.display = 'none';
+  document.getElementById('successMsg').classList.remove('hidden');
+  window.scrollTo({ top: document.getElementById('contact').offsetTop, behavior: 'smooth' });
+}
+
+// ── SMOOTH SCROLL ──
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+
+</body>
+</html>
