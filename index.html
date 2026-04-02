@@ -948,7 +948,7 @@
 
     <!-- FORM -->
     <div class="card-glass p-8 md:p-12 reveal">
-      <form action="https://formspree.io/f/mzdkajne" method="POST">
+      <form id="contactForm" action="https://formspree.io/f/mzdkajne" method="POST">
         <div class="grid md:grid-cols-2 gap-6 mb-6">
           <div>
             <label class="mono text-xs block mb-2" style="color:var(--accent-cyan);">YOUR NAME *</label>
@@ -1165,12 +1165,15 @@ if (serviceItems) {
 }
 
 // ── FORM SUBMIT ──
-function handleSubmit(e) {
-  e.preventDefault();
-  document.getElementById('contactForm').style.display = 'none';
-  document.getElementById('successMsg').classList.remove('hidden');
-  window.scrollTo({ top: document.getElementById('contact').offsetTop, behavior: 'smooth' });
-}
+document.getElementById('contactForm').addEventListener('submit', function () {
+  // Let the form submit normally to Formspree
+
+  // Show success UI after a short delay
+  setTimeout(() => {
+    this.style.display = 'none';
+    document.getElementById('successMsg').classList.remove('hidden');
+  }, 400);
+});
 
 // ── SMOOTH SCROLL ──
 document.querySelectorAll('a[href^="#"]').forEach(a => {
