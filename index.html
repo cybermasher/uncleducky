@@ -3,15 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Uncle Ducky — Richmond & Williamsburg's premier computer and electronics recycling service. Free pickup. No hassle. Recycle your old tech today.">
+<meta name="description" content="Free electronics recycling and computer pickup in Richmond and Williamsburg. Certified hard drive destruction and eco-friendly e-waste disposal. Schedule today.">
 <meta name="keywords" content="electronics recycling Richmond VA, computer recycling Williamsburg VA, e-waste pickup, tech disposal Virginia">
-<meta property="og:title" content="Uncle Ducky | Electronics Recycling – Richmond & Williamsburg, VA">
-<meta property="og:description" content="Stop letting old tech collect dust. We pick it up, wipe it clean, and recycle it responsibly. Serving Richmond & Williamsburg.">
-<title>Uncle Ducky | Electronics Recycling – Richmond & Williamsburg, VA</title>
+<meta property="og:title" content="Free Computer Recycling Pickup Richmond & Williamsburg VA | Uncle Ducky">
+<meta property="og:description" content="Free electronics recycling and computer pickup in Richmond and Williamsburg. Certified hard drive destruction and eco-friendly e-waste disposal. Schedule today.">
+<title>Free Computer Recycling Pickup Richmond & Williamsburg VA | Uncle Ducky</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Exo+2:wght@300;400;600;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" href="/images/logo.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Uncle Ducky Electronics Recycling",
+  "description": "Free computer and electronics recycling pickup service serving Richmond and Williamsburg, VA.",
+  "url": "https://uncleducky.org",
+  "telephone": "+18045570913",
+  "areaServed": ["Richmond, VA", "Williamsburg, VA", "Midlothian, VA", "Glen Allen, VA"]
+}
+</script>
+<link rel="icon" type="image/png" href="/images/logo.png" fetchpriority="high">
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
   :root {
@@ -512,7 +523,7 @@
 <nav id="navbar" class="pt-8">
   <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
     <div class="flex items-center gap-3">
-      <img src="https://cybermasher.github.io/uncleducky/images/logo.png" alt="Uncle Ducky Duck Logo" class="w-12 h-12 object-contain">
+      <img src="https://cybermasher.github.io/uncleducky/images/logo.png" alt="Uncle Ducky Electronics Recycling Richmond VA" class="w-12 h-12 object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]" fetchpriority="high">
       <div>
         <div class="brand-font text-2xl leading-none" style="color:var(--accent-cyan); letter-spacing:0.06em;">Uncle Ducky</div>
         <div class="mono text-xs" style="color:var(--chrome-2); letter-spacing:0.15em;">E-WASTE RECYCLING</div>
@@ -563,8 +574,12 @@
         <h1 class="hero-title brand-font leading-none mb-4 glitch"
             data-text="YOUR OLD TECH IS TAKING OVER."
             style="font-size:clamp(3.5rem,7vw,6.5rem); color:#fff;">
-          YOUR OLD TECH IS TAKING OVER.
+          Free Electronics Recycling <span class="block text-white">& Computer Pickup</span>
         </h1>
+       
+<h2 class="text-xl md:text-2xl font-mono text-[var(--chrome-2)] mb-8 max-w-2xl mx-auto uppercase tracking-widest opacity-80">
+  Richmond & Williamsburg's Premier E-Waste Solution
+</h2>
 
         <p class="text-lg mb-8 leading-relaxed" style="color:var(--chrome-2); max-width:500px;">
           Closets stuffed with dead laptops. Garages full of ancient monitors. 
@@ -1081,6 +1096,10 @@
       <p class="mono text-xs" style="color:var(--chrome-3);">© 2026 Uncle Ducky | RICHMOND &amp; WILLIAMSBURG, VA | ALL RIGHTS RESERVED</p>
       <p class="mono text-xs" style="color:var(--chrome-3);">RESPONSIBLE RECYCLING • DATA SECURITY • LOCAL COMMUNITY</p>
     </div>
+    <div class="mt-12 pt-8 border-t border-white/10 text-xs text-white/40 text-center uppercase tracking-widest">
+  <p>Serving Central Virginia: Richmond, Williamsburg, James City County, The Fan, Short Pump, and Midlothian.</p>
+  <p>Specializing in: Free computer recycling, monitor disposal, and certified hard drive destruction.</p>
+    </div>
   </div>
 </footer>
 
@@ -1088,11 +1107,15 @@
      JAVASCRIPT
 ═══════════════════════════════════════════════ -->
 <script>
-// ── LOADER ──
+// Optimized Loader Script
 window.addEventListener('load', () => {
+  const loader = document.getElementById('loader');
+  // Removed setTimeout delay for better Core Web Vitals
+  loader.style.opacity = '0';
   setTimeout(() => {
-    document.getElementById('loader').classList.add('hidden');
-  }, 2000);
+    loader.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }, 500); 
 });
 
 // ── PARTICLES ──
