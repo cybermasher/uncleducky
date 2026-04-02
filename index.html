@@ -948,25 +948,25 @@
 
     <!-- FORM -->
     <div class="card-glass p-8 md:p-12 reveal">
-      <form id="contactForm" onsubmit="handleSubmit(event)">
+      <form action="https://formspree.io/f/mzdkajne" method="POST">
         <div class="grid md:grid-cols-2 gap-6 mb-6">
           <div>
             <label class="mono text-xs block mb-2" style="color:var(--accent-cyan);">YOUR NAME *</label>
-            <input type="text" class="form-input" placeholder="First & Last Name" required>
+            <input type="text" name="name" class="form-input" placeholder="First & Last Name" required>
           </div>
           <div>
             <label class="mono text-xs block mb-2" style="color:var(--accent-cyan);">EMAIL ADDRESS *</label>
-            <input type="email" class="form-input" placeholder="you@email.com" required>
+            <input type="email" name="email" class="form-input" placeholder="you@email.com" required>
           </div>
         </div>
         <div class="grid md:grid-cols-2 gap-6 mb-6">
           <div>
             <label class="mono text-xs block mb-2" style="color:var(--accent-cyan);">PHONE NUMBER</label>
-            <input type="tel" class="form-input" placeholder="(804) 557-0913">
+            <input type="tel" name="phone" class="form-input" placeholder="(804) 557-0913">
           </div>
           <div>
             <label class="mono text-xs block mb-2" style="color:var(--accent-cyan);">YOUR CITY *</label>
-            <select class="form-input" required style="cursor:pointer;">
+            <select name="city" class="form-input" required style="cursor:pointer;">
               <option value="" disabled selected>Select your area...</option>
               <option>Richmond</option>
               <option>Henrico County</option>
@@ -980,7 +980,7 @@
         </div>
         <div class="mb-6">
           <label class="mono text-xs block mb-2" style="color:var(--accent-cyan);">WHAT ARE YOU RECYCLING? *</label>
-          <textarea class="form-input" rows="4" placeholder="e.g., 3 laptops, 2 monitors, a box of cables, an ancient desktop that still runs Windows XP..." required style="resize:vertical;"></textarea>
+          <textarea class="form-input" name="items" rows="4" placeholder="e.g., 3 laptops, 2 monitors, a box of cables, an ancient desktop that still runs Windows XP..." required style="resize:vertical;"></textarea>
         </div>
         <div class="mb-8">
           <label class="mono text-xs block mb-3" style="color:var(--accent-cyan);">PICKUP TYPE</label>
