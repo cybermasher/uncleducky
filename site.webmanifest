@@ -1,8 +1,8 @@
 // manifest.webmanifest
 {
   "icons": [
-    { "src": "/icon-192.png", "type": "image/png", "sizes": "192x192" },
-    { "src": "/icon-mask.png", "type": "image/png", "sizes": "512x512", "purpose": "maskable" },
-    { "src": "/icon-512.png", "type": "image/png", "sizes": "512x512" }
+    { "images": "/logo-192.png", "type": "image/png", "sizes": "192x192" },
+    { "images": "/logo-mask.png", "type": "image/png", "sizes": "512x512", "purpose": "maskable" },
+    { "images": "/logo-512.png", "type": "image/png", "sizes": "512x512" }
   ]
 }
