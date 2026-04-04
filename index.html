@@ -566,7 +566,7 @@
   <div class="max-w-7xl mx-auto px-6 w-full py-32 md:py-0">
     <div class="grid md:grid-cols-2 gap-12 items-center min-h-screen">
       <!-- LEFT COPY -->
-       <div class="relative z-10" style="padding-top: 100px">
+       <div class="relative z-10" style="padding-top: clamp(20px, 5vw, 100px)">
         <div class="mono text-xs mb-4 flex items-center gap-2" style="color:var(--accent-cyan);">
           <span class="inline-block w-8 h-px" style="background:var(--accent-cyan);"></span>
           RICHMOND &amp; WILLIAMSBURG, VA
@@ -634,21 +634,21 @@
         </div>
 
         <!-- Floating tech labels -->
-        <div class="absolute top-8 left-0 card-glass px-3 py-2 text-xs mono" style="color:var(--accent-cyan);animation:duckBob 5s ease-in-out infinite 0.5s;">
-          COMPUTERS ✓
-        </div>
-        <div class="absolute bottom-2 left-0 card-glass px-3 py-2 text-xs mono" style="color:var(--accent-cyan);animation:duckBob 3.8s ease-in-out infinite 1s;">
-         CELL PHONES ✓
-        </div>
-        <div class="absolute bottom-1/2 left-[20px] card-glass px-3 py-2 text-xs mono" style="color:var(--accent-cyan);animation:duckBob 3.8s ease-in-out infinite 1s;">
-          LAPTOPS ✓
-        </div>
-        <div class="absolute top-4 right-0 card-glass px-3 py-2 text-xs mono" style="color:var(--accent-cyan);animation:duckBob 4s ease-in-out infinite;">
-          SPEAKERS ✓
-        </div>
-        <div class="absolute bottom-1/2 right-0 card-glass px-3 py-2 text-xs mono" style="color:var(--accent-cyan);animation:duckBob 3.8s ease-in-out infinite 1s;">
-          RECIEVERS ✓
-        </div>
+        <div class="absolute top-4 right-[-30px] card-glass px-3 py-2 text-xs mono hidden md:block" style="color:var(--accent-cyan);animation:duckBob 4s ease-in-out infinite;">
+  SPEAKERS ✓
+</div>
+<div class="absolute top-1/3 right-[-50px] card-glass px-3 py-2 text-xs mono hidden md:block" style="color:var(--accent-cyan);animation:duckBob 3.8s ease-in-out infinite 1s;">
+  RECIEVERS ✓
+</div>
+<div class="absolute bottom-1/3 right-[-50px] card-glass px-3 py-2 text-xs mono hidden md:block" style="color:var(--accent-cyan);animation:duckBob 5s ease-in-out infinite 0.5s;">
+  CELL PHONES ✓
+</div>
+<div class="absolute top-1/3 left-[-50px] card-glass px-3 py-2 text-xs mono hidden md:block" style="color:var(--accent-cyan);animation:duckBob 4s ease-in-out infinite 0.3s;">
+  COMPUTERS ✓
+</div>
+<div class="absolute bottom-1/3 left-[-50px] card-glass px-3 py-2 text-xs mono hidden md:block" style="color:var(--accent-cyan);animation:duckBob 3.8s ease-in-out infinite 1s;">
+  LAPTOPS ✓
+</div>
       </div>
     </div>
   </div>
