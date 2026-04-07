@@ -483,62 +483,6 @@
   15%     { transform: rotate(-10deg); }
   20%     { transform: rotate(0deg); }
 }
-/* ── PHOTO UPLOAD ── */
-.upload-zone {
-  border: 2px dashed rgba(0,229,255,0.3);
-  border-radius: 8px;
-  padding: 2rem;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  background: rgba(0,229,255,0.03);
-  position: relative;
-}
-.upload-zone:hover, .upload-zone.dragover {
-  border-color: var(--accent-cyan);
-  background: rgba(0,229,255,0.07);
-  box-shadow: 0 0 20px rgba(0,229,255,0.1);
-}
-.upload-zone input[type="file"] {
-  position: absolute; inset: 0;
-  opacity: 0; cursor: pointer;
-  width: 100%; height: 100%;
-}
-.upload-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
-.upload-title {
-  font-family: 'Exo 2', sans-serif; font-weight: 700;
-  font-size: 0.95rem; color: #fff; margin-bottom: 0.25rem;
-}
-.upload-subtitle {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 0.65rem; color: var(--chrome-3); letter-spacing: 0.1em;
-}
-.upload-subtitle span { color: var(--accent-cyan); }
-.preview-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-  gap: 0.5rem; margin-top: 1rem;
-}
-.preview-item {
-  position: relative; aspect-ratio: 1;
-  border-radius: 4px; overflow: hidden;
-  border: 1px solid rgba(0,229,255,0.2);
-}
-.preview-item img { width:100%; height:100%; object-fit:cover; display:block; }
-.preview-remove {
-  position: absolute; top: 3px; right: 3px;
-  width: 18px; height: 18px; border-radius: 50%;
-  background: rgba(0,0,0,0.75); border: none;
-  color: #fff; font-size: 0.6rem; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  transition: background 0.2s;
-}
-.preview-remove:hover { background: #ef4444; }
-.upload-count {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 0.65rem; color: var(--accent-cyan);
-  margin-top: 0.5rem; text-align: center; display: none;
-}
 </style>
 </head>
 <body>
@@ -1009,7 +953,11 @@
 ═══════════════════════════════════════════════ -->
 <section id="contact" class="py-24 relative overflow-hidden" style="background:linear-gradient(135deg,#0a1628 0%,#0d2847 50%,#0a1628 100%);">
   <div class="absolute inset-0 grid-bg opacity-30"></div>
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" style="width:600px;height:600px;border-radius:50%;background:radial-gradient(circle, rgba(0,229,255,0.05) 0%, transparent 70%);pointer-events:none;"></div>
+  <!-- Floating glow orb -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" style="
+    width:600px;height:600px;border-radius:50%;
+    background:radial-gradient(circle, rgba(0,229,255,0.05) 0%, transparent 70%);
+    pointer-events:none;"></div>
 
   <div class="max-w-3xl mx-auto px-6 relative z-10">
     <div class="text-center mb-12 reveal">
@@ -1021,9 +969,9 @@
       <p style="color:var(--chrome-2);">Tell us about your tech pile. We'll reach out within 24 hours to see if you qualify for a <strong style="color:#fff;">free pickup</strong>. Richmond &amp; Williamsburg only.</p>
     </div>
 
+    <!-- FORM -->
     <div class="card-glass p-8 md:p-12 reveal">
-      <form id="contactForm">
-
+      <form id="contactForm" action="https://formspree.io/f/mzdkajne" method="POST">
         <div class="grid md:grid-cols-2 gap-6 mb-6">
           <div>
             <label class="mono text-xs block mb-2" style="color:var(--accent-cyan);">YOUR NAME *</label>
@@ -1034,7 +982,6 @@
             <input type="email" name="email" class="form-input" placeholder="you@email.com" required>
           </div>
         </div>
-
         <div class="grid md:grid-cols-2 gap-6 mb-6">
           <div>
             <label class="mono text-xs block mb-2" style="color:var(--accent-cyan);">PHONE NUMBER</label>
@@ -1056,50 +1003,28 @@
             </select>
           </div>
         </div>
-
         <div class="mb-6">
           <label class="mono text-xs block mb-2" style="color:var(--accent-cyan);">WHAT ARE YOU RECYCLING? *</label>
           <textarea class="form-input" name="items" rows="4" placeholder="e.g., 3 laptops, 2 monitors, a box of cables, an ancient desktop that still runs Windows XP..." required style="resize:vertical;"></textarea>
         </div>
-
-        <div class="mb-6">
+        <div class="mb-8">
           <label class="mono text-xs block mb-3" style="color:var(--accent-cyan);">PICKUP TYPE</label>
           <div class="flex flex-wrap gap-4">
             <label class="flex items-center gap-2 cursor-pointer">
-              <input type="radio" name="pickup" value="Residential" checked style="accent-color:var(--accent-cyan);">
+              <input type="radio" name="pickup" value="residential" checked style="accent-color:var(--accent-cyan);">
               <span class="text-sm" style="color:var(--chrome-1);">Residential</span>
             </label>
             <label class="flex items-center gap-2 cursor-pointer">
-              <input type="radio" name="pickup" value="Commercial / Office" style="accent-color:var(--accent-cyan);">
+              <input type="radio" name="pickup" value="commercial" style="accent-color:var(--accent-cyan);">
               <span class="text-sm" style="color:var(--chrome-1);">Commercial / Office</span>
             </label>
             <label class="flex items-center gap-2 cursor-pointer">
-              <input type="radio" name="pickup" value="School / Nonprofit" style="accent-color:var(--accent-cyan);">
+              <input type="radio" name="pickup" value="nonprofit" style="accent-color:var(--accent-cyan);">
               <span class="text-sm" style="color:var(--chrome-1);">School / Nonprofit</span>
             </label>
           </div>
         </div>
-
-        <!-- ── PHOTO UPLOAD ── -->
-        <div class="mb-8">
-          <label class="mono text-xs block mb-2" style="color:var(--accent-cyan);">
-            PHOTOS OF YOUR TECH
-            <span style="color:var(--chrome-3);"> — OPTIONAL, HELPS US PREPARE</span>
-          </label>
-          <div class="upload-zone" id="uploadZone">
-            <input type="file" id="photoInput" accept="image/*" multiple>
-            <div class="upload-icon">📷</div>
-            <div class="upload-title">TAP TO UPLOAD OR TAKE A PHOTO</div>
-            <div class="upload-subtitle">
-              DRAG &amp; DROP ALSO WORKS &nbsp;•&nbsp;
-              <span>UP TO 5 PHOTOS</span> &nbsp;•&nbsp; JPG, PNG, HEIC
-            </div>
-          </div>
-          <div class="preview-grid" id="previewGrid"></div>
-          <div class="upload-count" id="uploadCount"></div>
-        </div>
-
-        <!-- ── URGENCY NUDGE ── -->
+        <!-- Urgency nudge -->
         <div class="mb-8 p-4 rounded" style="background:rgba(0,229,255,0.08);border:1px solid rgba(0,229,255,0.2);">
           <div class="flex items-center gap-3">
             <div class="w-3 h-3 rounded-full bg-green-400 flex-shrink-0" style="animation:pulse 1.5s infinite;"></div>
@@ -1107,39 +1032,22 @@
           </div>
         </div>
 
-        <!-- ── SUBMIT BUTTON ── -->
-        <button type="submit" id="submitBtn" class="btn-primary w-full text-center text-lg" style="justify-content:center;">
-          <span id="submitLabel">🦆 SCHEDULE MY FREE PICKUP! →</span>
+        <button type="submit" class="btn-primary w-full text-center text-lg justify-center">
+          <span>🦆 SCHEDULE MY FREE PICKUP! →</span>
         </button>
-
-        <!-- ── SENDING STATE ── -->
-        <div id="sendingState" class="hidden text-center mt-4">
-          <div class="mono text-xs" style="color:var(--accent-cyan);">
-            <span id="sendingMsg">SENDING YOUR REQUEST...</span>
-          </div>
-          <div style="width:100%;height:3px;background:rgba(255,255,255,0.1);border-radius:2px;margin-top:0.75rem;overflow:hidden;">
-            <div id="sendingBar" style="height:100%;width:0%;background:linear-gradient(90deg,var(--blue-electric),var(--accent-cyan));border-radius:2px;transition:width 0.4s ease;"></div>
-          </div>
-        </div>
-
         <p class="mono text-xs text-center mt-4" style="color:var(--chrome-3);">No spam. No sales calls. Just a pickup confirmation within 24 hours.</p>
+        <input type="hidden" name="_subject" value="🔥 New Uncle Ducky Pickup Request">
       </form>
 
-      <!-- ── SUCCESS MESSAGE ── -->
+      <!-- Success message -->
       <div id="successMsg" class="hidden text-center py-8">
         <div class="text-6xl mb-4 duck-bob inline-block">🦆</div>
         <h3 class="brand-font text-3xl mb-3" style="color:var(--accent-cyan);">YOU'RE ON THE LIST!</h3>
-        <p style="color:var(--chrome-2);">We'll be in touch within 24 hours to lock in your pickup time.<br>Check your email — a confirmation is on its way.</p>
+        <p style="color:var(--chrome-2);">We'll be in touch within 24 hours to lock in your pickup time. Your clutter's days are numbered.</p>
       </div>
+    </div>
 
-      <!-- ── ERROR MESSAGE ── -->
-      <div id="errorMsg" class="hidden text-center py-4 mt-4 rounded" style="background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);">
-        <p class="mono text-xs" style="color:#f87171;">⚠️ SOMETHING WENT WRONG. PLEASE TRY AGAIN OR CALL US DIRECTLY AT (804) 557-0913.</p>
-      </div>
-
-    </div><!-- /.card-glass -->
-
-    <!-- Trust signals -->
+    <!-- Trust signals below form -->
     <div class="mt-8 grid grid-cols-3 gap-4 text-center reveal">
       <div class="mono text-xs" style="color:var(--chrome-3);">
         <div class="text-lg mb-1">🔒</div>NO SPAM EVER
@@ -1148,7 +1056,7 @@
         <div class="text-lg mb-1">📋</div>DATA DESTRUCTION CERT
       </div>
       <div class="mono text-xs" style="color:var(--chrome-3);">
-        <div class="text-lg mb-1">🆓</div>ALWAYS FREE PICKUP
+        <div class="text-lg mb-1">🆓</div>FREE PICKUP OPTION
       </div>
     </div>
   </div>
@@ -1290,184 +1198,36 @@ if (serviceItems) {
   }).join('');
 }
 
-// ══════════════════════════════════════════════
-// UNCLE DUCKY — CONTACT FORM + PHOTO UPLOAD
-// ══════════════════════════════════════════════
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzskC416ixTItFlzlaRXaxhmO6MKTYxqticnGl8sQsyVjngFr5VwCY2SAz0emFrZlNc/exec'; // ← paste your deployment URL
-
-// ── PHOTO UPLOAD LOGIC ──
-const uploadZone  = document.getElementById('uploadZone');
-const photoInput  = document.getElementById('photoInput');
-const previewGrid = document.getElementById('previewGrid');
-const uploadCount = document.getElementById('uploadCount');
-const MAX_PHOTOS  = 5;
-let uploadedFiles = [];
-
-photoInput.addEventListener('change', handleFiles);
-
-uploadZone.addEventListener('dragover', e => {
-  e.preventDefault();
-  uploadZone.classList.add('dragover');
-});
-uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('dragover'));
-uploadZone.addEventListener('drop', e => {
-  e.preventDefault();
-  uploadZone.classList.remove('dragover');
-  handleFiles({ target: { files: e.dataTransfer.files } });
-});
-
-function handleFiles(e) {
-  const files    = Array.from(e.target.files);
-  const toAdd    = files.slice(0, MAX_PHOTOS - uploadedFiles.length);
-  toAdd.forEach(file => {
-    if (!file.type.startsWith('image/')) return;
-    uploadedFiles.push(file);
-    const reader = new FileReader();
-    reader.onload = ev => addPreview(ev.target.result, uploadedFiles.length - 1);
-    reader.readAsDataURL(file);
-  });
-  updateCount();
-  photoInput.value = '';
-}
-
-function addPreview(src, index) {
-  const item = document.createElement('div');
-  item.className = 'preview-item';
-  item.dataset.index = index;
-  item.innerHTML = `
-    <img src="${src}" alt="Tech photo ${index + 1}">
-    <button type="button" class="preview-remove" onclick="removePhoto(${index})">✕</button>
-  `;
-  previewGrid.appendChild(item);
-}
-
-function removePhoto(index) {
-  uploadedFiles.splice(index, 1);
-  previewGrid.innerHTML = '';
-  uploadedFiles.forEach((file, i) => {
-    const reader = new FileReader();
-    reader.onload = ev => addPreview(ev.target.result, i);
-    reader.readAsDataURL(file);
-  });
-  updateCount();
-}
-
-function updateCount() {
-  const n = uploadedFiles.length;
-  uploadCount.style.display  = n > 0 ? 'block' : 'none';
-  uploadCount.textContent    = `${n} PHOTO${n !== 1 ? 'S' : ''} ATTACHED`;
-  uploadZone.style.opacity       = n >= MAX_PHOTOS ? '0.5' : '1';
-  uploadZone.style.pointerEvents = n >= MAX_PHOTOS ? 'none' : 'auto';
-}
-
-// ── READ ALL PHOTOS AS BASE64 ──
-function readFilesAsBase64(files) {
-  return Promise.all(files.map(file => new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload  = e => resolve({ name: file.name, type: file.type, data: e.target.result });
-    reader.onerror = reject;
-    reader.readAsDataURL(file);
-  })));
-}
-
-// ── PROGRESS BAR ANIMATION ──
-function animateProgress(targetPct, duration = 800) {
-  const bar   = document.getElementById('sendingBar');
-  const msg   = document.getElementById('sendingMsg');
-  const start = parseFloat(bar.style.width) || 0;
-  const diff  = targetPct - start;
-  const steps = duration / 16;
-  let   step  = 0;
-  const messages = {
-    30:  'COMPRESSING PHOTOS...',
-    60:  'UPLOADING TO UNCLE DUCKY...',
-    90:  'ALMOST THERE...',
-    100: 'SENT! 🦆'
-  };
-  const timer = setInterval(() => {
-    step++;
-    const pct = start + diff * (step / steps);
-    bar.style.width = pct + '%';
-    Object.entries(messages).forEach(([threshold, text]) => {
-      if (pct >= threshold) msg.textContent = text;
-    });
-    if (step >= steps) clearInterval(timer);
-  }, 16);
-}
-
-// ── FORM SUBMISSION ──
+// ── FORM SUBMIT ──
 document.getElementById('contactForm').addEventListener('submit', async function(e) {
-  e.preventDefault();
+  e.preventDefault(); // ✅ STOP page reload
 
-  const form      = this;
-  const submitBtn = document.getElementById('submitBtn');
-  const sending   = document.getElementById('sendingState');
-  const errorMsg  = document.getElementById('errorMsg');
+  const form = this;
+  const data = new FormData(form);
 
-  // Reset error state
-  errorMsg.classList.add('hidden');
-
-  // Disable button, show progress
-  submitBtn.disabled = true;
-  submitBtn.style.opacity = '0.6';
-  sending.classList.remove('hidden');
-  animateProgress(25, 400);
-
-  // Collect form values
-  const payload = {
-    name:   form.querySelector('[name="name"]').value.trim(),
-    email:  form.querySelector('[name="email"]').value.trim(),
-    phone:  form.querySelector('[name="phone"]').value.trim(),
-    city:   form.querySelector('[name="city"]').value,
-    items:  form.querySelector('[name="items"]').value.trim(),
-    pickup: form.querySelector('[name="pickup"]:checked').value,
-    photos: []
-  };
-
-  // Convert photos to base64
-  if (uploadedFiles.length > 0) {
-    try {
-      animateProgress(60, 1000);
-      payload.photos = await readFilesAsBase64(uploadedFiles);
-    } catch (err) {
-      console.warn('Photo read error:', err);
-      // Continue without photos rather than blocking the submission
-    }
-  } else {
-    animateProgress(60, 600);
-  }
-
-  animateProgress(85, 500);
-
-  // Send to Google Apps Script
   try {
-    const response = await fetch(SCRIPT_URL, {
-      method:  'POST',
-      body:    JSON.stringify(payload),
-      headers: { 'Content-Type': 'application/json' }
+    const response = await fetch(form.action, {
+      method: "POST",
+      body: data,
+      headers: {
+        'Accept': 'application/json'
+      }
     });
 
-    const result = await response.json();
-
-    if (result.success) {
-      animateProgress(100, 300);
-      setTimeout(() => {
-        form.style.display = 'none';
-        sending.classList.add('hidden');
-        document.getElementById('successMsg').classList.remove('hidden');
-        window.scrollTo({ top: document.getElementById('contact').offsetTop, behavior: 'smooth' });
-      }, 600);
+    if (response.ok) {
+      // ✅ SUCCESS UI (your original behavior)
+      form.style.display = 'none';
+      document.getElementById('successMsg').classList.remove('hidden');
+      window.scrollTo({
+        top: document.getElementById('contact').offsetTop,
+        behavior: 'smooth'
+      });
     } else {
-      throw new Error(result.error || 'Unknown error');
+      alert("Something went wrong. Please try again.");
     }
 
-  } catch (err) {
-    console.error('Submission error:', err);
-    sending.classList.add('hidden');
-    errorMsg.classList.remove('hidden');
-    submitBtn.disabled = false;
-    submitBtn.style.opacity = '1';
-    document.getElementById('sendingBar').style.width = '0%';
+  } catch (error) {
+    alert("Network error. Please try again.");
   }
 });
 
