@@ -1206,13 +1206,19 @@ document.getElementById('contactForm').addEventListener('submit', async function
   const data = new FormData(form);
 
   try {
-    const response = await fetch(form.action, {
-      method: "POST",
-      body: data,
-      headers: {
-        'Accept': 'application/json'
-      }
-    });
+    // Google Apps Script requires no-cors mode + form-encoded to avoid preflight
+const formData = new FormData();
+formData.append('payload', JSON.stringify(payload));
+
+const response = await fetch(SCRIPT_URL, {
+  method: 'POST',
+  body:   formData,
+  mode:   'no-cors'  // ← bypasses the CORS preflight block
+});
+
+// no-cors returns an opaque response — we can't read it,
+// so we treat a completed fetch as success
+const result = { success: true };
 
     if (response.ok) {
       // ✅ SUCCESS UI (your original behavior)
