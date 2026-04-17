@@ -920,6 +920,38 @@
           <div class="upload-count" id="uploadCount"></div>
         </div>
 
+        <!-- ── WEB DESIGN INTEREST ── -->
+<div class="mb-8">
+  <label class="mono text-xs block mb-3" style="color:var(--accent-cyan);">ADDITIONAL SERVICES</label>
+  <label class="flex items-start gap-3 cursor-pointer group">
+    <div style="position:relative;flex-shrink:0;margin-top:2px;">
+      <input type="checkbox" name="webdesign_interest" value="Yes" id="webdesignCheck"
+             style="position:absolute;opacity:0;width:0;height:0;">
+      <div id="webdesignBox" style="
+        width:20px;height:20px;
+        border:1.5px solid rgba(0,229,255,0.4);
+        background:rgba(13,40,71,0.8);
+        display:flex;align-items:center;justify-content:center;
+        transition:all 0.2s ease;
+      ">
+        <svg id="webdesignCheck_icon" width="12" height="12" viewBox="0 0 12 12" fill="none"
+             style="opacity:0;transition:opacity 0.2s ease;">
+          <polyline points="1.5,6 4.5,9 10.5,3" stroke="#00e5ff" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+    <div>
+      <span class="text-sm font-semibold" style="color:#fff;display:block;margin-bottom:3px;">
+        🖥️ I'm also interested in Web Design Services
+      </span>
+      <span class="mono text-xs" style="color:var(--chrome-3);">
+        Check this box and we'll include a free website consultation with your pickup appointment.
+      </span>
+    </div>
+  </label>
+</div>
+
         <!-- ── URGENCY NUDGE ── -->
         <div class="mb-8 p-4 rounded" style="background:rgba(0,229,255,0.08);border:1px solid rgba(0,229,255,0.2);">
           <div class="flex items-center gap-3">
@@ -1224,6 +1256,31 @@ document.getElementById('contactForm').addEventListener('submit', async function
   const submitBtn = document.getElementById('submitBtn');
   const sending   = document.getElementById('sendingState');
   const errorMsg  = document.getElementById('errorMsg');
+
+  // ── WEB DESIGN CHECKBOX ──
+const wdCheckbox  = document.getElementById('webdesignCheck');
+const wdBox       = document.getElementById('webdesignBox');
+const wdIcon      = document.getElementById('webdesignCheck_icon');
+
+wdCheckbox.addEventListener('change', function() {
+  if (this.checked) {
+    wdBox.style.background     = 'rgba(0,229,255,0.12)';
+    wdBox.style.borderColor    = '#00e5ff';
+    wdBox.style.boxShadow      = '0 0 10px rgba(0,229,255,0.25)';
+    wdIcon.style.opacity       = '1';
+  } else {
+    wdBox.style.background     = 'rgba(13,40,71,0.8)';
+    wdBox.style.borderColor    = 'rgba(0,229,255,0.4)';
+    wdBox.style.boxShadow      = 'none';
+    wdIcon.style.opacity       = '0';
+  }
+});
+
+// Make the whole label row clickable
+document.querySelector('label[for="webdesignCheck"]') &&
+  document.querySelector('label[for="webdesignCheck"]').addEventListener('click', () => {
+    wdCheckbox.click();
+  });
 
   // Reset error state
   errorMsg.classList.add('hidden');
