@@ -845,7 +845,11 @@
 
     <div class="card-glass p-8 md:p-12 reveal">
       <form id="contactForm">
-
+        <!-- Honeypot — hidden from humans, bots fill it automatically -->
+<div style="position:absolute;left:-9999px;top:-9999px;opacity:0;" aria-hidden="true">
+  <label for="website_url">Leave this blank</label>
+  <input type="text" id="website_url" name="website_url" tabindex="-1" autocomplete="off">
+</div>
         <div class="grid md:grid-cols-2 gap-6 mb-6">
           <div>
             <label class="mono text-xs block mb-2" style="color:var(--accent-cyan);">YOUR NAME *</label>
@@ -861,6 +865,10 @@
           <div>
             <label class="mono text-xs block mb-2" style="color:var(--accent-cyan);">PHONE NUMBER</label>
             <input type="tel" name="phone" class="form-input" placeholder="(804) 557-0913">
+          </div>
+          <div>
+            <label class="mono text-xs block mb-2" style="color:var(--accent-cyan);">Address</label>
+            <input type="text" name="address" class="form-input" placeholder="Address For Pickup">
           </div>
           <div>
             <label class="mono text-xs block mb-2" style="color:var(--accent-cyan);">YOUR CITY *</label>
@@ -1148,7 +1156,7 @@ if (serviceItems) {
 // ══════════════════════════════════════════════
 // UNCLE DUCKY — CONTACT FORM + PHOTO UPLOAD
 // ══════════════════════════════════════════════
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwSAXTxmvJsZHAgnujV-iQpmfQG9YNTjCEPYKTMiQFCybh6pvM30s6FMeb8rT6Ag5aP/exec'; // ← paste your deployment URL
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwEbBOczJjJU2xIvhiDjEjeUTd-ohM0twYKJ2SAxuzcITEdMjK4UgDWdnA94_NM1Ogd/exec'; // ← paste your deployment URL
 
 // ── PHOTO UPLOAD LOGIC ──
 const uploadZone  = document.getElementById('uploadZone');
@@ -1253,7 +1261,11 @@ function animateProgress(targetPct, duration = 800) {
 // ── FORM SUBMISSION ──
 document.getElementById('contactForm').addEventListener('submit', async function(e) {
   e.preventDefault();
-
+  
+// ── HONEYPOT CHECK ──
+  if (document.getElementById('website_url').value !== '') {
+    return; // Bot detected — silently do nothing
+  }
   const form      = this;
   const submitBtn = document.getElementById('submitBtn');
   const sending   = document.getElementById('sendingState');
@@ -1284,6 +1296,15 @@ document.querySelector('label[for="webdesignCheck"]') &&
     wdCheckbox.click();
   });
 
+// ── RECAPTCHA VALIDATION ──
+const recaptchaResponse = grecaptcha.getResponse();
+if (!recaptchaResponse) {
+  errorMsg.classList.remove('hidden');
+  errorMsg.querySelector('p').textContent = '⚠️ PLEASE COMPLETE THE RECAPTCHA VERIFICATION BEFORE SUBMITTING.';
+  return;
+}
+payload.recaptcha = recaptchaResponse;
+
   // Reset error state
   errorMsg.classList.add('hidden');
 
@@ -1298,10 +1319,12 @@ document.querySelector('label[for="webdesignCheck"]') &&
     name:   form.querySelector('[name="name"]').value.trim(),
     email:  form.querySelector('[name="email"]').value.trim(),
     phone:  form.querySelector('[name="phone"]').value.trim(),
+    address:  form.querySelector('[name="address"]').value.trim(),
     city:   form.querySelector('[name="city"]').value,
     items:  form.querySelector('[name="items"]').value.trim(),
     pickup: form.querySelector('[name="pickup"]:checked').value,
-    photos: []
+    photos: [],
+    honeypot: document.getElementById('website_url').value
   };
 
   // Convert photos to base64
