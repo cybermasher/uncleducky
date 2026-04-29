@@ -1074,12 +1074,11 @@
 // Optimized Loader Script
 window.addEventListener('load', () => {
   const loader = document.getElementById('loader');
-  // Removed setTimeout delay for better Core Web Vitals
   loader.style.opacity = '0';
   setTimeout(() => {
     loader.style.display = 'none';
     document.body.style.overflow = 'auto';
-  }, 500); 
+  }, 500);
 });
 
 // ── PARTICLES ──
@@ -1135,7 +1134,7 @@ const counterObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe(el));
 
-// ── SERVICE ITEMS (fill from JS) ──
+// ── SERVICE ITEMS ──
 const serviceItems = document.querySelector('.grid.grid-cols-2.gap-3');
 if (serviceItems) {
   const items = [
@@ -1156,7 +1155,27 @@ if (serviceItems) {
 // ══════════════════════════════════════════════
 // UNCLE DUCKY — CONTACT FORM + PHOTO UPLOAD
 // ══════════════════════════════════════════════
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwEbBOczJjJU2xIvhiDjEjeUTd-ohM0twYKJ2SAxuzcITEdMjK4UgDWdnA94_NM1Ogd/exec'; // ← paste your deployment URL
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwEbBOczJjJU2xIvhiDjEjeUTd-ohM0twYKJ2SAxuzcITEdMjK4UgDWdnA94_NM1Ogd/exec';
+
+// ── WEB DESIGN CHECKBOX ──
+// BUG FIX: moved OUTSIDE the submit handler so it works immediately on page load
+const wdCheckbox = document.getElementById('webdesignCheck');
+const wdBox      = document.getElementById('webdesignBox');
+const wdIcon     = document.getElementById('webdesignCheck_icon');
+
+wdCheckbox.addEventListener('change', function() {
+  if (this.checked) {
+    wdBox.style.background  = 'rgba(0,229,255,0.12)';
+    wdBox.style.borderColor = '#00e5ff';
+    wdBox.style.boxShadow   = '0 0 10px rgba(0,229,255,0.25)';
+    wdIcon.style.opacity    = '1';
+  } else {
+    wdBox.style.background  = 'rgba(13,40,71,0.8)';
+    wdBox.style.borderColor = 'rgba(0,229,255,0.4)';
+    wdBox.style.boxShadow   = 'none';
+    wdIcon.style.opacity    = '0';
+  }
+});
 
 // ── PHOTO UPLOAD LOGIC ──
 const uploadZone  = document.getElementById('uploadZone');
@@ -1180,8 +1199,8 @@ uploadZone.addEventListener('drop', e => {
 });
 
 function handleFiles(e) {
-  const files    = Array.from(e.target.files);
-  const toAdd    = files.slice(0, MAX_PHOTOS - uploadedFiles.length);
+  const files = Array.from(e.target.files);
+  const toAdd = files.slice(0, MAX_PHOTOS - uploadedFiles.length);
   toAdd.forEach(file => {
     if (!file.type.startsWith('image/')) return;
     uploadedFiles.push(file);
@@ -1217,8 +1236,8 @@ function removePhoto(index) {
 
 function updateCount() {
   const n = uploadedFiles.length;
-  uploadCount.style.display  = n > 0 ? 'block' : 'none';
-  uploadCount.textContent    = `${n} PHOTO${n !== 1 ? 'S' : ''} ATTACHED`;
+  uploadCount.style.display      = n > 0 ? 'block' : 'none';
+  uploadCount.textContent        = `${n} PHOTO${n !== 1 ? 'S' : ''} ATTACHED`;
   uploadZone.style.opacity       = n >= MAX_PHOTOS ? '0.5' : '1';
   uploadZone.style.pointerEvents = n >= MAX_PHOTOS ? 'none' : 'auto';
 }
@@ -1240,7 +1259,7 @@ function animateProgress(targetPct, duration = 800) {
   const start = parseFloat(bar.style.width) || 0;
   const diff  = targetPct - start;
   const steps = duration / 16;
-  let   step  = 0;
+  let step    = 0;
   const messages = {
     30:  'COMPRESSING PHOTOS...',
     60:  'UPLOADING TO UNCLE DUCKY...',
@@ -1261,49 +1280,24 @@ function animateProgress(targetPct, duration = 800) {
 // ── FORM SUBMISSION ──
 document.getElementById('contactForm').addEventListener('submit', async function(e) {
   e.preventDefault();
-  
-// ── HONEYPOT CHECK ──
-  if (document.getElementById('website_url').value !== '') {
-    return; // Bot detected — silently do nothing
-  }
+
   const form      = this;
   const submitBtn = document.getElementById('submitBtn');
   const sending   = document.getElementById('sendingState');
   const errorMsg  = document.getElementById('errorMsg');
 
-  // ── WEB DESIGN CHECKBOX ──
-const wdCheckbox  = document.getElementById('webdesignCheck');
-const wdBox       = document.getElementById('webdesignBox');
-const wdIcon      = document.getElementById('webdesignCheck_icon');
-
-wdCheckbox.addEventListener('change', function() {
-  if (this.checked) {
-    wdBox.style.background     = 'rgba(0,229,255,0.12)';
-    wdBox.style.borderColor    = '#00e5ff';
-    wdBox.style.boxShadow      = '0 0 10px rgba(0,229,255,0.25)';
-    wdIcon.style.opacity       = '1';
-  } else {
-    wdBox.style.background     = 'rgba(13,40,71,0.8)';
-    wdBox.style.borderColor    = 'rgba(0,229,255,0.4)';
-    wdBox.style.boxShadow      = 'none';
-    wdIcon.style.opacity       = '0';
+  // ── HONEYPOT CHECK ──
+  if (document.getElementById('website_url').value !== '') {
+    return; // Bot detected — silently do nothing
   }
-});
 
-// Make the whole label row clickable
-document.querySelector('label[for="webdesignCheck"]') &&
-  document.querySelector('label[for="webdesignCheck"]').addEventListener('click', () => {
-    wdCheckbox.click();
-  });
-
-// ── RECAPTCHA VALIDATION ──
-const recaptchaResponse = grecaptcha.getResponse();
-if (!recaptchaResponse) {
-  errorMsg.classList.remove('hidden');
-  errorMsg.querySelector('p').textContent = '⚠️ PLEASE COMPLETE THE RECAPTCHA VERIFICATION BEFORE SUBMITTING.';
-  return;
-}
-payload.recaptcha = recaptchaResponse;
+  // ── RECAPTCHA VALIDATION ──
+  const recaptchaResponse = grecaptcha.getResponse();
+  if (!recaptchaResponse) {
+    errorMsg.classList.remove('hidden');
+    errorMsg.querySelector('p').textContent = '⚠️ PLEASE COMPLETE THE "I\'M NOT A ROBOT" CHECK BEFORE SUBMITTING.';
+    return;
+  }
 
   // Reset error state
   errorMsg.classList.add('hidden');
@@ -1314,17 +1308,20 @@ payload.recaptcha = recaptchaResponse;
   sending.classList.remove('hidden');
   animateProgress(25, 400);
 
-  // Collect form values
+  // ── COLLECT FORM VALUES ──
+  // BUG FIX: payload is now defined BEFORE recaptcha is added to it
   const payload = {
-    name:   form.querySelector('[name="name"]').value.trim(),
-    email:  form.querySelector('[name="email"]').value.trim(),
-    phone:  form.querySelector('[name="phone"]').value.trim(),
+    name:     form.querySelector('[name="name"]').value.trim(),
+    email:    form.querySelector('[name="email"]').value.trim(),
+    phone:    form.querySelector('[name="phone"]').value.trim(),
     address:  form.querySelector('[name="address"]').value.trim(),
-    city:   form.querySelector('[name="city"]').value,
-    items:  form.querySelector('[name="items"]').value.trim(),
-    pickup: form.querySelector('[name="pickup"]:checked').value,
-    photos: [],
-    honeypot: document.getElementById('website_url').value
+    city:     form.querySelector('[name="city"]').value,
+    items:    form.querySelector('[name="items"]').value.trim(),
+    pickup:   form.querySelector('[name="pickup"]:checked').value,
+    webdesign: wdCheckbox.checked ? 'Yes' : 'No',
+    honeypot:  document.getElementById('website_url').value,
+    recaptcha: recaptchaResponse,
+    photos:   []
   };
 
   // Convert photos to base64
@@ -1334,7 +1331,6 @@ payload.recaptcha = recaptchaResponse;
       payload.photos = await readFilesAsBase64(uploadedFiles);
     } catch (err) {
       console.warn('Photo read error:', err);
-      // Continue without photos rather than blocking the submission
     }
   } else {
     animateProgress(60, 600);
@@ -1342,38 +1338,31 @@ payload.recaptcha = recaptchaResponse;
 
   animateProgress(85, 500);
 
-  // Send to Google Apps Script
+  // ── SEND TO GOOGLE APPS SCRIPT ──
   try {
-    // Google Apps Script requires no-cors mode + form-encoded to avoid preflight
-const formData = new FormData();
-formData.append('payload', JSON.stringify(payload));
+    const formData = new FormData();
+    formData.append('payload', JSON.stringify(payload));
 
-const response = await fetch(SCRIPT_URL, {
-  method: 'POST',
-  body:   formData,
-  mode:   'no-cors'  // ← bypasses the CORS preflight block
-});
+    await fetch(SCRIPT_URL, {
+      method: 'POST',
+      body:   formData,
+      mode:   'no-cors'
+    });
 
-// no-cors returns an opaque response — we can't read it,
-// so we treat a completed fetch as success
-const result = { success: true };
-
-    if (result.success) {
-      animateProgress(100, 300);
-      setTimeout(() => {
-        form.style.display = 'none';
-        sending.classList.add('hidden');
-        document.getElementById('successMsg').classList.remove('hidden');
-        window.scrollTo({ top: document.getElementById('contact').offsetTop, behavior: 'smooth' });
-      }, 600);
-    } else {
-      throw new Error(result.error || 'Unknown error');
-    }
+    // no-cors returns opaque response — completed fetch = success
+    animateProgress(100, 300);
+    setTimeout(() => {
+      form.style.display = 'none';
+      sending.classList.add('hidden');
+      document.getElementById('successMsg').classList.remove('hidden');
+      window.scrollTo({ top: document.getElementById('contact').offsetTop, behavior: 'smooth' });
+    }, 600);
 
   } catch (err) {
     console.error('Submission error:', err);
     sending.classList.add('hidden');
     errorMsg.classList.remove('hidden');
+    errorMsg.querySelector('p').textContent = '⚠️ SOMETHING WENT WRONG. PLEASE TRY AGAIN OR CALL US AT (804) 557-0913.';
     submitBtn.disabled = false;
     submitBtn.style.opacity = '1';
     document.getElementById('sendingBar').style.width = '0%';
