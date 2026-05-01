@@ -761,24 +761,25 @@
 <div style="position:absolute;left:-9999px;top:-9999px;opacity:0;" aria-hidden="true">
   <label for="website_url">Leave this blank</label>
   <input type="text" id="website_url" name="website_url" tabindex="-1" autocomplete="off">
+  <input type="hidden" name="form_time" value="">
 </div>
         <div class="grid md:grid-cols-2 gap-6 mb-6">
           <div>
-            <label class="mono text-xs block mb-2" style="color:var(--accent-cyan);">NAME *</label>
+            <label for="name" class="mono text-xs block mb-2" style="color:var(--accent-cyan);">NAME *</label>
             <input type="text" name="name" class="form-input" placeholder="First & Last Name" required>
           </div>
           <div>
-            <label class="mono text-xs block mb-2" style="color:var(--accent-cyan);">EMAIL *</label>
+            <label for="email" class="mono text-xs block mb-2" style="color:var(--accent-cyan);">EMAIL *</label>
             <input type="email" name="email" class="form-input" placeholder="you@email.com" required>
           </div>
         </div>
         <div class="mb-6">
-          <label class="mono text-xs block mb-2" style="color:var(--accent-cyan);">PROJECT SCOPE *</label>
+          <label for="project" class="mono text-xs block mb-2" style="color:var(--accent-cyan);">PROJECT SCOPE *</label>
           <textarea class="form-input" name="project" rows="4" placeholder="Tell us about your business goals, web needs, or AI interests..." required style="resize:vertical;"></textarea>
         </div>
 
         <div class="mb-6">
-          <label class="mono text-xs block mb-3" style="color:var(--accent-cyan);">SERVICE FOCUS</label>
+          <label for="service" class="mono text-xs block mb-3" style="color:var(--accent-cyan);">SERVICE FOCUS</label>
           <div class="flex flex-wrap gap-4">
             <label class="flex items-center gap-2 cursor-pointer">
               <input type="radio" name="service" value="Web Design" checked style="accent-color:var(--accent-cyan);">
@@ -800,39 +801,41 @@
         <div class="mb-8 p-4 rounded" style="background:rgba(0,229,255,0.08);border:1px solid rgba(0,229,255,0.2);">
           <div class="flex items-center gap-3">
             <div class="w-3 h-3 rounded-full bg-green-400 flex-shrink-0" style="animation:pulse 1.5s infinite;"></div>
-            <p class="mono text-xs" style="color:var(--accent-cyan);">⚡ SAME-WEEK APPOINTMENTS AVAILABLE — LIMITED SLOTS THIS WEEK</p>
+            <p class="mono text-xs" style="color:var(--accent-cyan);">CURRENTLY ACCEPTING NEW CLIENTS — RESPONSE WITHIN 24 HOURS</p>
           </div>
         </div>
 
         <!-- ── SUBMIT BUTTON ── -->
         <button type="submit" id="submitBtn" class="btn-primary w-full text-center text-lg" style="justify-content:center;">
-          <span id="submitLabel">🦆 INITIATE DISCOVERY CALL →</span>
+          <span id="submitLabel">🦆 SEND MY PROJECT DETAILS →</span>
         </button>
 
         <!-- ── SENDING STATE ── -->
         <div id="sendingState" class="hidden text-center mt-4">
           <div class="mono text-xs" style="color:var(--accent-cyan);">
-            <span id="sendingMsg">SENDING MESSAGE...</span>
+            <span id="sendingMsg">SENDING YOUR REQUEST...</span>
           </div>
           <div style="width:100%;height:3px;background:rgba(255,255,255,0.1);border-radius:2px;margin-top:0.75rem;overflow:hidden;">
             <div id="sendingBar" style="height:100%;width:0%;background:linear-gradient(90deg,var(--blue-electric),var(--accent-cyan));border-radius:2px;transition:width 0.4s ease;"></div>
           </div>
         </div>
-      </form>
+
+        <p class="mono text-xs text-center mt-4" style="color:var(--chrome-3);">No spam. No pressure. Just a conversation about your project.</p>
 
       <!-- ── SUCCESS MESSAGE ── -->
       <div id="successMsg" class="hidden text-center py-8">
         <div class="text-6xl mb-4 duck-bob inline-block">🦆</div>
-        <h3 class="brand-font text-3xl mb-3" style="color:var(--accent-cyan);">MESSAGE RECEIVED</h3>
-        <p style="color:var(--chrome-2);">We'll be in touch within 24 hours to schedule a deep dive.<br>Check your email — a confirmation is on its way.</p>
+        <h3 class="brand-font text-3xl mb-3" style="color:var(--accent-cyan);">WE'VE GOT YOUR DETAILS!</h3>
+        <p style="color:var(--chrome-2);">Expect a response within 24 hours — usually much faster.<br>Check your email for a confirmation.</p>
       </div>
 
       <!-- ── ERROR MESSAGE ── -->
       <div id="errorMsg" class="hidden text-center py-4 mt-4 rounded" style="background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);">
-        <p class="mono text-xs" style="color:#f87171;">⚠️ SOMETHING WENT WRONG. PLEASE TRY AGAIN OR CALL US DIRECTLY AT (804) 557-0913.</p>
+        <p class="mono text-xs" style="color:#f87171;">SOMETHING WENT WRONG. PLEASE TRY AGAIN OR CALL US AT (804) 557-0913.</p>
       </div>
+    </div><!-- /.card-glass -->
+      </form>
     </div>
-  </div>
 </section>
   
 <!-- ═══════════════════════════════════════════════
@@ -920,7 +923,16 @@ document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe
 // ══════════════════════════════════════════════
 // UNCLE DUCKY — CONTACT FORM
 // ══════════════════════════════════════════════
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyn5adx9iwaNUm87qk300nLvkspy3_FIM6oXEZrXVxARHbCCIAF4Nl41uM7eHbcKjqj/exec';
+
+// ── SET TIMESTAMP ──  
+document.addEventListener("DOMContentLoaded", function () {
+  const formTimeInput = document.getElementById('form_time');
+  if (formTimeInput) {
+    formTimeInput.value = Date.now();
+  }
+});
+  
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyn5adx9iwaNUm87qk300nLvkspy3_FIM6oXEZrXVxARHbCCIAF4Nl41uM7eHbcKjqj/exec';
 // ── FORM SUBMISSION ──
 document.getElementById('contactForm').addEventListener('submit', async function(e) {
   e.preventDefault();
@@ -931,9 +943,21 @@ document.getElementById('contactForm').addEventListener('submit', async function
   const errorMsg  = document.getElementById('errorMsg');
 
   // ── HONEYPOT CHECK ──
-  if (document.getElementById('website_url').value !== '') {
-    return; // Bot detected — silently do nothing
-  }
+
+// 1. Hidden field check
+if (document.getElementById('website_url').value !== '') {
+  return; // Bot detected
+}
+
+// 2. Time-based check
+const formTime = document.getElementById('form_time').value;
+const now = Date.now();
+const secondsElapsed = (now - formTime) / 1000;
+
+// If submitted too fast (e.g., under 3 seconds), likely a bot
+if (secondsElapsed < 3) {
+  return; // Bot detected
+}
 
   // ── RECAPTCHA VALIDATION ──
   const recaptchaResponse = grecaptcha.getResponse();
