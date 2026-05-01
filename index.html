@@ -951,26 +951,6 @@ document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe
 // ══════════════════════════════════════════════
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwdTzkP3LhvTRM4hIGaqTw3_GadrrOAHtBfU_0hx6Uc0ugLtRqbla_miCJDyBkuegZE/exec';
 
-// ── WEB DESIGN CHECKBOX ──
-// BUG FIX: moved OUTSIDE the submit handler so it works immediately on page load
-const wdCheckbox = document.getElementById('webdesignCheck');
-const wdBox      = document.getElementById('webdesignBox');
-const wdIcon     = document.getElementById('webdesignCheck_icon');
-
-wdCheckbox.addEventListener('change', function() {
-  if (this.checked) {
-    wdBox.style.background  = 'rgba(0,229,255,0.12)';
-    wdBox.style.borderColor = '#00e5ff';
-    wdBox.style.boxShadow   = '0 0 10px rgba(0,229,255,0.25)';
-    wdIcon.style.opacity    = '1';
-  } else {
-    wdBox.style.background  = 'rgba(13,40,71,0.8)';
-    wdBox.style.borderColor = 'rgba(0,229,255,0.4)';
-    wdBox.style.boxShadow   = 'none';
-    wdIcon.style.opacity    = '0';
-  }
-});
-
 // ── PHOTO UPLOAD LOGIC ──
 const uploadZone  = document.getElementById('uploadZone');
 const photoInput  = document.getElementById('photoInput');
