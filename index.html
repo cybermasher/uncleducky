@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- ── GEO-TARGETED SEO META ── -->
-<meta name="description" content="Uncle Ducky is a Christian micro school in Williamsburg, VA offering hands-on education in STEM, coding, AI, sailing, sports, gardening, and the arts for children in New Kent, James City County, York County, and the greater Hampton Roads area.">
-<meta name="keywords" content="Christian micro school Williamsburg VA, homeschool co-op New Kent County VA, STEM classes for kids Williamsburg Virginia, coding classes children James City County, Christian homeschool program Hampton Roads, sailing lessons kids Williamsburg VA, micro school York County Virginia, hands-on learning New Kent VA, Christian education alternative Williamsburg, homeschool enrichment classes Virginia Peninsula">
+<meta name="description" content="Uncle Ducky is a Christian micro school teacher and one-on-one tutor/mentor in Williamsburg, VA offering hands-on education in STEM, coding, AI, sailing, sports, gardening, and the arts for children in New Kent, James City County, York County, and the greater Hampton Roads area.">
+<meta name="keywords" content="Christian micro school teacher in Williamsburg VA, homeschool co-op New Kent County VA, STEM classes for kids Williamsburg Virginia, coding classes children James City County, Christian homeschool program Hampton Roads, sailing lessons kids Williamsburg VA, micro school York County Virginia, hands-on learning New Kent VA, Christian education alternative Williamsburg, homeschool enrichment classes Virginia Peninsula">
 <meta property="og:title" content="Uncle Ducky | Christian Micro School — Williamsburg, VA">
 <meta property="og:description" content="Hands-on Christian education in Williamsburg, VA. STEM, coding, AI, sailing, sports, gardening, acting and more for children in New Kent, James City County, and York County.">
 <meta property="og:type" content="website">
@@ -459,25 +459,41 @@
         </div>
       </div>
 
-      <!-- RIGHT — Interactive Chalkboard -->
-      <div class="relative flex flex-col items-center justify-center hidden md:flex">
-        <div class="chalkboard-wrap">
-          <div class="chalkboard">
-            <canvas id="chalkCanvas"></canvas>
-            <!-- Faint watermark subjects in background -->
-            <div class="chalk-subject-tags" id="subjectWatermarks"></div>
-          </div>
-          <div class="chalkboard-ledge">
-            <div class="chalk-piece chalk-white"  data-color="#f0f0f0"  title="White chalk"  onclick="setChalk(this)"></div>
-            <div class="chalk-piece chalk-yellow" data-color="#f5e67a"  title="Yellow chalk" onclick="setChalk(this)"></div>
-            <div class="chalk-piece chalk-blue"   data-color="#7ab8f5"  title="Blue chalk"   onclick="setChalk(this)"></div>
-            <div class="chalk-piece chalk-pink"   data-color="#f5a0c0"  title="Pink chalk"   onclick="setChalk(this)"></div>
-            <div class="chalk-eraser" title="Eraser" onclick="eraseBoard()">ERASE</div>
-          </div>
+      <!-- RIGHT MASCOT -->
+      <div class="relative flex items-center justify-center">
+        <!-- Glow rings behind duck -->
+        <div class="absolute" style="width:320px;height:320px;">
+          <div class="pulse-ring" style="inset:0;animation-delay:0s;"></div>
+          <div class="pulse-ring" style="inset:0;animation-delay:1.2s;"></div>
         </div>
-        <p class="cb-instruction mt-3">✏️ DRAW ON THE CHALKBOARD — PICK A COLOR BELOW</p>
-      </div>
+        <!-- Circular chrome frame -->
+        <div class="relative" style="
+          width:320px;height:320px;
+          border-radius:50%;
+          background: radial-gradient(circle, rgba(21,101,192,0.2) 0%, rgba(0,229,255,0.05) 70%, transparent 100%);
+          border:2px solid rgba(0,229,255,0.3);
+          display:flex; align-items:center; justify-content:center;
+          box-shadow: 0 0 60px rgba(0,229,255,0.2), inset 0 0 40px rgba(0,176,255,0.1);
+        ">
+          <img src="https://cybermasher.github.io/uncleducky/images/logo.png" alt="Uncle Ducky mascot"
+               class="duck-bob"
+               style="width:260px;height:260px;object-fit:contain;filter:drop-shadow(0 0 20px rgba(0,229,255,0.4));">
+        </div>
 
+        <!-- Floating tech labels -->
+        <div class="absolute top-4 right-[-30px] card-glass px-3 py-2 text-xs mono hidden md:block" style="color:var(--accent-cyan);animation:duckBob 4s ease-in-out infinite;">
+          TAILWIND ✓
+        </div>
+        <div class="absolute top-1/3 right-[-50px] card-glass px-3 py-2 text-xs mono hidden md:block" style="color:var(--accent-cyan);animation:duckBob 3.8s ease-in-out infinite 1s;">
+          OPENCLAW ✓
+        </div>
+        <div class="absolute bottom-1/3 right-[-50px] card-glass px-3 py-2 text-xs mono hidden md:block" style="color:var(--accent-cyan);animation:duckBob 5s ease-in-out infinite 0.5s;">
+          MULTI-AGENT ✓
+        </div>
+        <div class="absolute top-1/3 left-[-50px] card-glass px-3 py-2 text-xs mono hidden md:block" style="color:var(--accent-cyan);animation:duckBob 4s ease-in-out infinite 0.3s;">
+          SEO READY ✓
+        </div>
+      </div>
     </div>
   </div>
 
