@@ -10,6 +10,7 @@
     --blue-ice: #e3f2fd;
     --accent-cyan: #00e5ff;
     --accent-white: #f0f7ff;
+    --accent-black: #000000;
     --glow: 0 0 20px rgba(0,229,255,0.4), 0 0 60px rgba(33,150,243,0.2);
   }
 
@@ -19,8 +20,8 @@
 
   body {
     font-family: 'Exo 2', sans-serif;
-    background: var(--blue-deep);
-    color: var(--accent-white);
+    background: var(--accent-white);
+    color: var(--accent-black);
     overflow-x: hidden;
   }
 
