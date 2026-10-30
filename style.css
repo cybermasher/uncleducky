@@ -13,6 +13,33 @@
     --glow: 0 0 20px rgba(0,229,255,0.4), 0 0 60px rgba(33,150,243,0.2);
   }
 
+  .ducky-beta-banner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+    margin: 8.5rem auto -10.5rem;
+    padding: 1.05rem 1.5rem;
+    width: min(1120px, calc(100% - 2rem));
+    border: 1px solid rgba(241, 199, 91, .62);
+    border-radius: 16px;
+    color: #f7f6ed;
+    text-decoration: none;
+    background: radial-gradient(circle at 83% -65%, rgba(241,199,91,.27), transparent 39%), linear-gradient(115deg, #111d1d, #172622 56%, #102223);
+    box-shadow: 0 22px 65px rgba(0,0,0,.38), inset 0 1px rgba(255,255,255,.09);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .ducky-beta-banner:hover, .ducky-beta-banner:focus-visible { transform: translateY(-3px); box-shadow: 0 26px 70px rgba(0,0,0,.45), 0 0 35px rgba(241,199,91,.15); }
+  .ducky-beta-banner__eyebrow { color: #f1c75b; font: 700 .69rem 'Share Tech Mono', monospace; letter-spacing: .12em; white-space: nowrap; }
+  .ducky-beta-banner__title { font: 400 clamp(1.3rem, 2.5vw, 2rem) 'Bebas Neue', sans-serif; letter-spacing: .04em; }
+  .ducky-beta-banner__action { margin-left: auto; color: #f1c75b; font: 700 .75rem 'Exo 2', sans-serif; letter-spacing: .08em; white-space: nowrap; }
+  @media (max-width: 760px) {
+    .ducky-beta-banner { flex-wrap: wrap; gap: .35rem 1rem; margin-top: 8rem; margin-bottom: -9rem; padding: 1rem 1.1rem; }
+    .ducky-beta-banner__eyebrow { width: 100%; }
+    .ducky-beta-banner__action { margin-left: 0; }
+  }
+
   * { margin:0; padding:0; box-sizing:border-box; }
 
   html { scroll-behavior: smooth; }
