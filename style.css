@@ -15,7 +15,7 @@
 
   .ducky-beta-banner {
     position: relative;
-    z-index: 2;
+    z-index: 10000;
     display: flex;
     align-items: center;
     gap: 1.4rem;
@@ -26,7 +26,7 @@
     border-radius: 16px;
     color: #f7f6ed;
     text-decoration: none;
-    background: radial-gradient(circle at 83% -65%, rgba(241,199,91,.27), transparent 39%), linear-gradient(115deg, #111d1d, #172622 56%, #102223);
+    background: radial-gradient(circle at 83% -65%, rgba(33, 150, 243, .27), transparent 39%), linear-gradient(115deg, #ffffff, #2196f3 56%, #00E5FF);
     box-shadow: 0 22px 65px rgba(0,0,0,.38), inset 0 1px rgba(255,255,255,.09);
     transition: transform .2s, box-shadow .2s;
   }
