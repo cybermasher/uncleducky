@@ -32,7 +32,7 @@
     transition: transform .2s, box-shadow .2s;
   }
   .ducky-beta-banner:hover, .ducky-beta-banner:focus-visible { transform: translateY(-3px); box-shadow: 0 26px 70px rgba(0,0,0,.45), 0 0 35px rgba(241,199,91,.15); }
-  .ducky-beta-banner__eyebrow { color: #333333; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); font: 700 .69rem 'Share Tech Mono', monospace; letter-spacing: .12em; white-space: nowrap; }
+  .ducky-beta-banner__eyebrow { color: #999999; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); font: 700 .69rem 'Share Tech Mono', monospace; letter-spacing: .12em; white-space: nowrap; }
   .ducky-beta-banner__title { font: 400 clamp(1.3rem, 2.5vw, 2rem) 'Bebas Neue', sans-serif; letter-spacing: .04em; }
   .ducky-beta-banner__action { margin-left: auto; color: #999999; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); font: 700 .75rem 'Exo 2', sans-serif; letter-spacing: .08em; white-space: nowrap; }
   @media (max-width: 760px) {
