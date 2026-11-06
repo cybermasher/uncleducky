@@ -1,0 +1,144 @@
+{
+  "schema": 1,
+  "mode": "projects",
+  "created_at": "2026-11-06T21:53:23.037291+00:00",
+  "files": [
+    {
+      "path": ".coder-checkpoint.md",
+      "bytes": 604,
+      "sha256": "271733ca34b3d4b492d55798dd36f488f4cea12e69aa010e5f78a8a99b8e62b8",
+      "mode": 436,
+      "parts": []
+    },
+    {
+      "path": "CNAME",
+      "bytes": 14,
+      "sha256": "30dfc5e5fb874b82d655c441b2f4d8379ebfa430d20b993a527917f3a93f1e6e",
+      "mode": 436,
+      "parts": []
+    },
+    {
+      "path": "README.md",
+      "bytes": 12,
+      "sha256": "d5e2f97e52834e5cd965ed15dc5864a6cfbb8e6e4c4dec587d905199456d47b3",
+      "mode": 436,
+      "parts": []
+    },
+    {
+      "path": "index.html",
+      "bytes": 65387,
+      "sha256": "7d7835ef3f62e50fb0dd24e6f738ca832db8326b5ec00bf51fe6ca18fe331e2f",
+      "mode": 436,
+      "parts": []
+    },
+    {
+      "path": "site.webmanifest",
+      "bytes": 296,
+      "sha256": "f4420caa375c9fced827acad914c486003550cd4d89f87c9845c60e303be1268",
+      "mode": 436,
+      "parts": []
+    },
+    {
+      "path": "style.css",
+      "bytes": 28984,
+      "sha256": "ac70b16898d21fffe818d3e5b690df4225d6a45e360308eb942a4fe4d5d2c58a",
+      "mode": 436,
+      "parts": []
+    },
+    {
+      "path": "ducky-os/README.md",
+      "bytes": 1933,
+      "sha256": "13bad009b7b31ac2cf4fa6648c955b93b95060453d87095be6b0da675bd4aade",
+      "mode": 436,
+      "parts": []
+    },
+    {
+      "path": "ducky-os/index.html",
+      "bytes": 8823,
+      "sha256": "619880b57beeb74f24609893708b28e014a25e3972d6aeea5ec2bf66e3bbc6bd",
+      "mode": 436,
+      "parts": []
+    },
+    {
+      "path": "ducky-os/signup.js",
+      "bytes": 1922,
+      "sha256": "467a7647c18c18a9e348522028e991ec501feb22e40d567bbd14f438750f422b",
+      "mode": 436,
+      "parts": []
+    },
+    {
+      "path": "ducky-os/style.css",
+      "bytes": 18747,
+      "sha256": "968256ddae7367b85d32434b9191c86b084f756473c90a5908dc1c9e4a0acd90",
+      "mode": 436,
+      "parts": []
+    },
+    {
+      "path": "images/apple-touch-icon.png",
+      "bytes": 48182,
+      "sha256": "e39a2732dbcbbdb98b9103201446807e3199bb692586340c6cbf764f2e53e4d4",
+      "mode": 436,
+      "parts": []
+    },
+    {
+      "path": "images/headshot.png",
+      "bytes": 347746,
+      "sha256": "a7b73913aa28a0bc9c3f626494d8a17c9bb05d8ae4115d46aad6fc1d1dd3a580",
+      "mode": 436,
+      "parts": []
+    },
+    {
+      "path": "images/logo-192.png",
+      "bytes": 53904,
+      "sha256": "a04b2ab26486d9029b57ef1ab8e7f7ffcaf0aff682a82934c83eb72fa6dfb723",
+      "mode": 436,
+      "parts": []
+    },
+    {
+      "path": "images/logo-512-mask.png",
+      "bytes": 304603,
+      "sha256": "1209f3c3fec08c7a4c7371d59eeedd1e3371f901bc2ae3e59f4416660e031d90",
+      "mode": 436,
+      "parts": []
+    },
+    {
+      "path": "images/logo-512.png",
+      "bytes": 304603,
+      "sha256": "1209f3c3fec08c7a4c7371d59eeedd1e3371f901bc2ae3e59f4416660e031d90",
+      "mode": 436,
+      "parts": []
+    },
+    {
+      "path": "images/logo.ico",
+      "bytes": 4286,
+      "sha256": "7b45c4a62012c268b0b40405fc48a26d9732e6c4c9dc7aae3f972f0df0636a0e",
+      "mode": 436,
+      "parts": []
+    },
+    {
+      "path": "images/logo.png",
+      "bytes": 196206,
+      "sha256": "fef90ab9c939af78852732a063e530a66fa9b0e3d40e5e0bbc48d6766590e612",
+      "mode": 436,
+      "parts": []
+    },
+    {
+      "path": "images/logo.svg",
+      "bytes": 52208,
+      "sha256": "1bf408c3345c1a9d0c2b964a5a70ab61365e4ab4545d396de261ffe8e9129b11",
+      "mode": 436,
+      "parts": []
+    },
+    {
+      "path": "images/subscribe.png",
+      "bytes": 3516,
+      "sha256": "4ae6b1734e64737e9657d9e8a0b217d9942e53db3a001d3c180ff2533e31b0a9",
+      "mode": 436,
+      "parts": []
+    }
+  ],
+  "excluded": [],
+  "excluded_directories": [
+    ".git"
+  ]
+}

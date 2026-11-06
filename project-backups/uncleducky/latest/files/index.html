@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Boutique digital agency specializing in high-performance web design and custom AI strategy. We build multi-agent orchestrators and conversion-focused systems.">
+<meta property="og:title" content="Uncle Ducky | High-Performance Web Design & AI Strategy">
+<meta property="og:description" content="Moving beyond traditional development. We architect high-speed web environments and custom AI agent systems for modern brands.">
+<title>Uncle Ducky | Boutique Web Design & AI Strategy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Exo+2:wght@300;400;600;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="/images/logo.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Uncle Ducky Digital Systems",
+  "description": "Boutique tech agency specializing in Web Design, AI Strategy, and Multi-Agent Orchestration.",
+  "url": "https://uncleducky.org",
+  "telephone": "+9144884128",
+  "areaServed": "Global",
+  "knowsAbout": ["Web Design", "AI Strategy", "Multi-Agent Systems", "SEO"]
+}
+</script>
+</head>
+<body>
+<!-- ── FLOATING CALL BUTTON ── -->
+<a id="call-float" href="tel:+9144884128" aria-label="Call Uncle Ducky Now">
+  <div class="call-icon-wrap">
+    <div class="call-icon-ring"></div>
+    <div class="call-icon-ring"></div>
+    <svg class="call-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.5 10.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012.41 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-.79a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+    </svg>
+  </div>
+  <div class="call-text-block">
+    <span class="call-label">CALL NOW</span>
+    <span class="call-number">(914) 488-4128</span>
+  </div>
+</a>
+<!-- ═══════════════════════════════════════════════
+     LOADER
+═══════════════════════════════════════════════ -->
+<div id="loader">
+  <img src="https://cybermasher.github.io/uncleducky/images/logo.png" alt="Uncle Ducky" style="width:100px;height:100px;object-fit:contain;animation:duckBob 1s ease-in-out infinite;">
+  <p class="mono text-sm" style="color:var(--accent-cyan);">INITIALIZING Uncle Ducky...</p>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     URGENCY TICKER
+═══════════════════════════════════════════════ -->
+<div class="ticker-wrap py-2 fixed top-0 left-0 right-0 z-50" id="ticker">
+  <div class="ticker-inner">
+    <span class="mono text-xs font-bold text-white px-8">⚡ AI STRATEGY &amp; AGENT ORCHESTRATION &nbsp;•&nbsp; HIGH-PERFORMANCE WEB DESIGN &nbsp;•&nbsp; SYSTEMS ARCHITECTURE &nbsp;•&nbsp; BUILT DIFFERENT &nbsp;•&nbsp; CONVERSION-FIRST DEVELOPMENT &nbsp;•&nbsp;</span>
+    <span class="mono text-xs font-bold text-white px-8">⚡ AI STRATEGY &amp; AGENT ORCHESTRATION &nbsp;•&nbsp; HIGH-PERFORMANCE WEB DESIGN &nbsp;•&nbsp; SYSTEMS ARCHITECTURE &nbsp;•&nbsp; BUILT DIFFERENT &nbsp;•&nbsp; CONVERSION-FIRST DEVELOPMENT &nbsp;•&nbsp;</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     NAV
+═══════════════════════════════════════════════ -->
+<nav id="navbar" class="pt-8">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <img src="https://cybermasher.github.io/uncleducky/images/logo.png" alt="Uncle Ducky Tech Agency" class="w-12 h-12 object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]" fetchpriority="high">
+      <div>
+        <div class="brand-font text-2xl leading-none" style="color:var(--accent-cyan); letter-spacing:0.06em;">Uncle Ducky</div>
+        <div class="mono text-xs" style="color:var(--chrome-2); letter-spacing:0.15em;">DIGITAL SYSTEMS</div>
+      </div>
+    </div>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#problem"      class="mono text-sm hover:text-cyan-300 transition-colors" style="color:var(--chrome-2);">THE PROBLEM</a>
+      <a href="#ai-strategy"  class="mono text-sm hover:text-cyan-300 transition-colors" style="color:var(--chrome-2);">AI STRATEGY</a>
+      <a href="#webdesign"   class="mono text-sm hover:text-cyan-300 transition-colors" style="color:var(--chrome-2);">WEB DESIGN</a>
+      <a href="#contact"  class="btn-primary text-sm"><span>BOOK A CALL</span></a>
+    </div>
+    <button id="menuBtn" class="md:hidden text-white p-2">
+      <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 6h18M3 12h18M3 18h18"/>
+      </svg>
+    </button>
+  </div>
+  <!-- mobile menu -->
+  <div id="mobileMenu" class="hidden md:hidden px-6 pb-4 flex flex-col gap-4" style="background:rgba(10,22,40,0.98);">
+     <a href="#PROBLEM"     class="mono text-sm py-2 border-b border-cyan-900" style="color:var(--chrome-2);">THE PROBLEM</a>
+    <a href="#ai-strategy" class="mono text-sm py-2 border-b border-cyan-900" style="color:var(--chrome-2);">AI STRATEGY</a>
+    <a href="#webdesign"  class="mono text-sm py-2 border-b border-cyan-900" style="color:var(--chrome-2);">WEB DESIGN</a>
+    <a href="#contact"  class="btn-primary text-sm text-center"><span>BOOK A CALL</span></a>
+  </div>
+</nav>
+
+<!-- Ducky OS beta feature -->
+<a class="ducky-beta-banner" href="https://www.uncleducky.org/ducky-os/index.html" aria-label="Explore the Ducky OS beta">
+  <span class="ducky-beta-banner__copy">
+    <span class="ducky-beta-banner__eyebrow"><span class="ducky-beta-banner__live" aria-hidden="true"></span> DUCKY OS <span class="ducky-beta-banner__divider" aria-hidden="true"></span> PRIVATE BETA</span>
+    <span class="ducky-beta-banner__title">Less juggling. <em>More doing.</em></span>
+    <span class="ducky-beta-banner__action">Explore the OS <span aria-hidden="true">↗</span></span>
+  </span>
+  <span class="ducky-beta-banner__art" aria-hidden="true">
+    <span class="ducky-beta-banner__orbit"></span>
+    <span class="ducky-beta-banner__window">
+      <span class="ducky-beta-banner__window-top"><span></span><span></span><span></span><i></i></span>
+      <span class="ducky-beta-banner__window-body">
+        <span class="ducky-beta-banner__score"></span>
+        <span class="ducky-beta-banner__bars"><i></i><i></i><i></i><i></i></span>
+        <span class="ducky-beta-banner__line"></span>
+      </span>
+    </span>
+    <span class="ducky-beta-banner__spark">✳</span>
+  </span>
+</a>
+
+<!-- ═══════════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════════ -->
+<section id="hero" class="grid-bg scanlines flex items-center relative">
+  <div class="particles" id="particles"></div>
+  <div class="max-w-7xl mx-auto px-6 w-full py-32 md:py-0">
+    <div class="grid md:grid-cols-2 gap-12 items-center min-h-screen">
+       <div class="relative z-10" style="padding-top: clamp(20px, 5vw, 100px)">
+        <!-- <div class="mono text-xs mb-4 flex items-center gap-2" style="color:var(--accent-cyan);">
+          <span class="inline-block w-8 h-px" style="background:var(--accent-cyan);"></span>
+          BOUTIQUE DIGITAL SYSTEMS AGENCY
+          <span class="inline-block w-8 h-px" style="background:var(--accent-cyan);"></span>
+        </div> -->
+        <h1 class="hero-title brand-font leading-none mb-4 glitch"
+            data-text="High-Performance Web Design & AI Strategy"
+            style="font-size:clamp(3rem,6vw,5.5rem); color:#fff;">
+          High-Performance Web Design & AI Strategy
+        </h1>
+       
+        <h2 class="text-xl md:text-2xl font-mono text-[var(--chrome-2)] mb-8 uppercase tracking-widest opacity-80">
+          We Architect Systems That Scale
+        </h2>
+
+        <p class="text-lg mb-8 leading-relaxed" style="color:var(--chrome-2); max-width:500px;">
+          Most websites are digital paperweights. Most AI implementation is just hype. 
+          We build <strong style="color:#fff;">lightning-fast web environments</strong> and 
+          <strong style="color:#fff;">autonomous AI agent orchestrators</strong> that solve 
+          real business bottlenecks.
+          <br><br>
+          <span style="color:var(--accent-cyan);">Built Different. Designed to Lead.</span>
+        </p>
+
+        <div class="flex flex-wrap gap-4 mb-10">
+          <a href="#contact" class="btn-primary"><span>🖥️ START YOUR PROJECT</span></a>
+          <a href="#ai-strategy" class="btn-chrome">EXPLORE AI AGENTS →</a>
+        </div>
+
+        <!-- URGENCY BADGES -->
+        <div class="flex flex-wrap gap-4">
+          <div class="card-glass px-4 py-2 flex items-center gap-2">
+            <span class="mono text-xs" style="color:var(--chrome-1);">⚡ BLAZING FAST WEB VITAL SCORES</span>
+          </div>
+          <div class="card-glass px-4 py-2 flex items-center gap-2">
+            <span class="mono text-xs" style="color:var(--chrome-1);">🤖 CUSTOM AGENT ORCHESTRATION</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT MASCOT -->
+      <div class="relative flex items-center justify-center">
+        <!-- Glow rings behind duck -->
+        <div class="absolute" style="width:320px;height:320px;">
+          <div class="pulse-ring" style="inset:0;animation-delay:0s;"></div>
+          <div class="pulse-ring" style="inset:0;animation-delay:1.2s;"></div>
+        </div>
+        <!-- Circular chrome frame -->
+        <div class="relative" style="
+          width:320px;height:320px;
+          border-radius:50%;
+          background: radial-gradient(circle, rgba(21,101,192,0.2) 0%, rgba(0,229,255,0.05) 70%, transparent 100%);
+          border:2px solid rgba(0,229,255,0.3);
+          display:flex; align-items:center; justify-content:center;
+          box-shadow: 0 0 60px rgba(0,229,255,0.2), inset 0 0 40px rgba(0,176,255,0.1);
+        ">
+          <img src="https://cybermasher.github.io/uncleducky/images/logo.png" alt="Uncle Ducky mascot"
+               class="duck-bob"
+               style="width:260px;height:260px;object-fit:contain;filter:drop-shadow(0 0 20px rgba(0,229,255,0.4));">
+        </div>
+
+        <!-- Floating tech labels -->
+        <div class="absolute top-4 right-[-30px] card-glass px-3 py-2 text-xs mono hidden md:block" style="color:var(--accent-cyan);animation:duckBob 4s ease-in-out infinite;">
+          TAILWIND ✓
+        </div>
+        <div class="absolute top-1/3 right-[-50px] card-glass px-3 py-2 text-xs mono hidden md:block" style="color:var(--accent-cyan);animation:duckBob 3.8s ease-in-out infinite 1s;">
+          OPENCLAW ✓
+        </div>
+        <div class="absolute bottom-1/3 right-[-50px] card-glass px-3 py-2 text-xs mono hidden md:block" style="color:var(--accent-cyan);animation:duckBob 5s ease-in-out infinite 0.5s;">
+          MULTI-AGENT ✓
+        </div>
+        <div class="absolute top-1/3 left-[-50px] card-glass px-3 py-2 text-xs mono hidden md:block" style="color:var(--accent-cyan);animation:duckBob 4s ease-in-out infinite 0.3s;">
+          SEO READY ✓
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll hint -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2" style="color:var(--chrome-3);">
+    <span class="mono text-xs tracking-widest">SCROLL DOWN</span>
+    <div style="animation:bounce 1.5s infinite;">
+      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l4 4 4-4"/></svg>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     STATS BAR
+═══════════════════════════════════════════════ -->
+<div style="background:linear-gradient(135deg, #0d2847, #0a1628); border-top:1px solid rgba(0,229,255,0.15); border-bottom:1px solid rgba(0,229,255,0.15);">
+  <div class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+    <div class="reveal">
+      <div class="counter-num text-5xl font-bold" style="color:var(--accent-cyan);" data-target="98">0</div>
+      <div class="mono text-xs mt-1" style="color:var(--chrome-2);">AVG PAGESPEED SCORE</div>
+    </div>
+    <div class="reveal" style="transition-delay:0.15s;">
+      <div class="counter-num text-5xl font-bold" style="color:var(--accent-cyan);" data-target="100">0</div>
+      <div class="mono text-xs mt-1" style="color:var(--chrome-2);">BOUTIQUE FOCUS</div>
+    </div>
+    <div class="reveal" style="transition-delay:0.3s;">
+      <div class="counter-num text-5xl font-bold" style="color:var(--accent-cyan);" data-target="24">0</div>
+      <div class="mono text-xs mt-1" style="color:var(--chrome-2);">HOUR STRATEGY RESPONSE</div>
+    </div>
+    <div class="reveal" style="transition-delay:0.45s;">
+      <div class="counter-num text-5xl font-bold" style="color:var(--accent-cyan);" data-target="50">0</div>
+      <div class="mono text-xs mt-1" style="color:var(--chrome-2);">MAX CLIENTS PER YEAR</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     THE PROBLEM
+═══════════════════════════════════════════════ -->
+<section id="problem" style="background:linear-gradient(180deg,#0a1628 0%,#0d2847 100%);" class="py-24 relative">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="text-center mb-16 reveal">
+      <div class="mono text-xs mb-3" style="color:var(--accent-cyan);letter-spacing:0.2em;">THE PROBLEM IS REAL</div>
+      <h2 class="brand-font text-5xl md:text-7xl" style="color:#fff;">YOUR WEBSITE IS MID</h2>
+      <div class="divider-chrome mx-auto mt-6" style="width:200px;"></div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- Card 1 -->
+      <div class="card-glass p-8 reveal" style="transition-delay:0.1s;">
+        <div class="text-5xl mb-4">🤦</div>
+        <h3 class="brand-font text-2xl mb-3" style="color:var(--accent-cyan);">POOR TRAFFIC</h3>
+        <p style="color:var(--chrome-2);">If no one knows you exist online, you're missing a huge opportunity for new business.</p>
+        <div class="mt-6">
+          <div class="mono text-xs mb-2" style="color:var(--chrome-3);">AMOUNT OF WEB TRAFFIC GENERATED BY BOTS:</div>
+          <div class="h-2 rounded" style="background:rgba(255,255,255,0.1);">
+            <div class="progress-fill rounded" style="width:53%;"></div>
+          </div>
+          <div class="mono text-xs mt-1" style="color:var(--accent-cyan);">Growing every year</div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="card-glass p-8 reveal" style="transition-delay:0.25s;">
+        <div class="text-5xl mb-4">⏱️</div>
+        <h3 class="brand-font text-2xl mb-3" style="color:var(--accent-cyan);">LOADS SLOW</h3>
+        <p style="color:var(--chrome-2);">Users expect your website to load in 2 seconds or less.</p>
+        <div class="mt-6">
+          <div class="mono text-xs mb-2" style="color:var(--chrome-3);">AVERAGE WEBSITE TAKES:</div>
+          <div class="h-2 rounded" style="background:rgba(255,255,255,0.1);">
+            <div class="progress-fill rounded" style="width:2.5%;"></div>
+          </div>
+          <div class="mono text-xs mt-1" style="color:var(--accent-cyan);">2.5 SECONDS TO LOAD</div>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="card-glass p-8 reveal" style="transition-delay:0.4s;">
+        <div class="text-5xl mb-4">🦣</div>
+        <h3 class="brand-font text-2xl mb-3" style="color:var(--accent-cyan);">OUTDATED DESIGN</h3>
+        <p style="color:var(--chrome-2);">If your landing page looks like it belong in a museum, you're definitely in trouble.</p>
+        <div class="mt-6">
+          <div class="mono text-xs mb-2" style="color:var(--chrome-3);">NEGATIVE USER FEEDBACK ATTRIBUTED TO POOR DESIGN:</div>
+          <div class="h-2 rounded" style="background:rgba(255,255,255,0.1);">
+            <div class="progress-fill rounded" style="width:94%;"></div>
+          </div>
+          <div class="mono text-xs mt-1" style="color:var(--accent-cyan);">Entirely fixable</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pull quote -->
+    <div class="mt-16 reveal text-center">
+      <div class="card-glass inline-block px-10 py-8 max-w-3xl mx-auto" style="border-left:4px solid var(--accent-cyan);">
+        <p class="text-xl md:text-2xl font-light italic leading-relaxed" style="color:#fff;">
+          "The longer you wait, the more you are falling behind. Meanwhile opportunities are passing you by." 
+          <strong style="color:var(--accent-cyan);font-style:normal;">Stop waiting. We have your back.</strong>"
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-chrome"></div>
+
+<!-- ═══════════════════════════════════════════════
+     HOW IT WORKS
+═══════════════════════════════════════════════ -->
+<section id="how" style="background:linear-gradient(180deg,#0d2847 0%,#0a1628 100%);" class="py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 reveal">
+      <div class="mono text-xs mb-3" style="color:var(--accent-cyan);letter-spacing:0.2em;">DEAD SIMPLE PROCESS</div>
+      <h2 class="brand-font text-5xl md:text-7xl" style="color:#fff;">3 STEPS. ZERO EFFORT.</h2>
+      <div class="divider-chrome mx-auto mt-6" style="width:200px;"></div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8 relative">
+      <!-- Step 1 -->
+      <div class="text-center reveal" style="transition-delay:0.1s; position:relative;">
+        <div class="relative inline-flex items-center justify-center w-16 h-16 rounded-full mb-6 mx-auto"
+             style="background:linear-gradient(135deg,var(--blue-electric),var(--accent-cyan)); box-shadow:var(--glow);">
+          <span class="brand-font text-2xl text-white">1</span>
+          <div class="step-line hidden md:block"></div>
+        </div>
+        <div class="text-5xl mb-4">📞</div>
+        <h3 class="brand-font text-2xl mb-3" style="color:var(--accent-cyan);">CALL OR CLICK</h3>
+        <p style="color:var(--chrome-2);">Fill out our quick form or give us a call. Tell us the pain you're experiencing.</p>
+      </div>
+      <!-- Step 2 -->
+      <div class="text-center reveal" style="transition-delay:0.25s; position:relative;">
+        <div class="relative inline-flex items-center justify-center w-16 h-16 rounded-full mb-6 mx-auto"
+             style="background:linear-gradient(135deg,var(--blue-electric),var(--accent-cyan)); box-shadow:var(--glow);">
+          <span class="brand-font text-2xl text-white">2</span>
+          <div class="step-line hidden md:block"></div>
+        </div>
+        <div class="text-5xl mb-4">🔎</div>
+        <h3 class="brand-font text-2xl mb-3" style="color:var(--accent-cyan);">WE INVESTIGATE</h3>
+        <p style="color:var(--chrome-2);">Our team looks into your business to find solutions that work. Period.</p>
+      </div>
+      <!-- Step 3 -->
+      <div class="text-center reveal" style="transition-delay:0.4s;">
+        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full mb-6 mx-auto"
+             style="background:linear-gradient(135deg,var(--blue-electric),var(--accent-cyan)); box-shadow:var(--glow);">
+          <span class="brand-font text-2xl text-white">3</span>
+        </div>
+        <div class="text-5xl mb-4">👍</div>
+        <h3 class="brand-font text-2xl mb-3" style="color:var(--accent-cyan);">IT'S HANDLED RIGHT</h3>
+        <p style="color:var(--chrome-2);">We deploy solutions that help you make more money and scale your business.</p>
+      </div>
+    </div>
+
+    <!-- CTA mid-page -->
+    <div class="text-center mt-16 reveal">
+      <a href="#contact" class="btn-primary text-lg"><span>🦆 SCHEDULE YOUR FREE CONSULTATION NOW</span></a>
+      <p class="mono text-xs mt-4" style="color:var(--chrome-3);">NO SERVICE CONTRACT. NO COMMITMENT. NO MORE DIGITAL PAPERWEIGHT</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider-chrome"></div>
+
+<!-- ═══════════════════════════════════════════════
+     AI STRATEGY
+═══════════════════════════════════════════════ -->
+<section id="ai-strategy" style="background:linear-gradient(180deg,#0a1628 0%,#0d2847 100%);" class="py-24 relative">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 reveal">
+      <div class="mono text-xs mb-3" style="color:var(--accent-cyan);letter-spacing:0.2em;">NEXT-GEN INTELLIGENCE</div>
+      <h2 class="brand-font text-5xl md:text-7xl" style="color:#fff;">AI IS NOT A CHATBOT.</h2>
+      <div class="divider-chrome mx-auto mt-6" style="width:200px;"></div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="card-glass p-8 reveal" style="transition-delay:0.1s;">
+        <div class="text-5xl mb-4">🤖</div>
+        <h3 class="brand-font text-2xl mb-3" style="color:var(--accent-cyan);">AGENT ORCHESTRATION</h3>
+        <p style="color:var(--chrome-2);">We build multi-agent systems using frameworks like OpenClaw. These aren't just LLMs; they are autonomous workers that research, write, and execute tasks for your business.</p>
+      </div>
+      <div class="card-glass p-8 reveal" style="transition-delay:0.25s;">
+        <div class="text-5xl mb-4">🧠</div>
+        <h3 class="brand-font text-2xl mb-3" style="color:var(--accent-cyan);">LOCAL LLM DEPLOYMENT</h3>
+        <p style="color:var(--chrome-2);">Data privacy matters. We architect local AI environments using Ollama and QMD, ensuring your proprietary business intelligence never leaves your hardware.</p>
+      </div>
+      <div class="card-glass p-8 reveal" style="transition-delay:0.4s;">
+        <div class="text-5xl mb-4">📈</div>
+        <h3 class="brand-font text-2xl mb-3" style="color:var(--accent-cyan);">WORKFLOW AUTOMATION</h3>
+        <p style="color:var(--chrome-2);">We identify the repetitive bottlenecks in your daily operations and build custom AI-driven flywheels to automate them, freeing your team for high-level creative work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     URGENCY SECTION
+═══════════════════════════════════════════════ -->
+<section style="background:linear-gradient(135deg, var(--blue-bright), var(--blue-electric), var(--blue-neon));" class="py-16 relative overflow-hidden">
+  <div class="absolute inset-0 grid-bg opacity-20"></div>
+  <div class="max-w-4xl mx-auto px-6 text-center relative z-10 reveal">
+    <div class="text-6xl mb-4 duck-bob inline-block">🦆</div>
+    <h2 class="brand-font text-4xl md:text-6xl mb-4 text-white">YOUR WEB PRESENCE ISN'T GOING TO FIX ITSELF.</h2>
+    <p class="text-lg mb-8 text-blue-100">Every week you wait is another week your business falls behind the competition. The fix takes less than a week!</p>
+    <a href="#contact" class="btn-chrome text-lg font-bold">YES, BOOK A CALL →</a>
+  </div>
+</section>
+
+<div class="divider-chrome"></div>
+
+<!-- ═══════════════════════════════════════════════
+     TESTIMONIALS
+═══════════════════════════════════════════════ -->
+<section class="py-24" style="background:linear-gradient(180deg,#0d2847,#0a1628);">
+    <div class="mt-16 grid md:grid-cols-3 gap-6">
+      <div class="card-glass p-6 reveal" style="transition-delay:0.1s;">
+        <div class="flex gap-1 mb-3" style="color:var(--accent-cyan);">★★★★★</div>
+        <p class="text-sm italic mb-4" style="color:var(--chrome-1);">“Our old site looked decent, but it didn’t bring in leads. Within weeks of launching the new one, we started getting consistent inquiries. The AI follow-up system was a game changer.”</p>
+        <div class="mono text-xs" style="color:var(--chrome-3);">— Mark R., Austin, TX</div>
+      </div>
+      <div class="card-glass p-6 reveal" style="transition-delay:0.25s;">
+        <div class="flex gap-1 mb-3" style="color:var(--accent-cyan);">★★★★★</div>
+        <p class="text-sm italic mb-4" style="color:var(--chrome-1);">“I had no idea how to use AI in my business. They set up automation that handles leads while I focus on clients. Easily one of the best investments I’ve made.”</p>
+        <div class="mono text-xs" style="color:var(--chrome-3);">— Danielle S., Charlotte, NC</div>
+      </div>
+      <div class="card-glass p-6 reveal" style="transition-delay:0.4s;">
+        <div class="flex gap-1 mb-3" style="color:var(--accent-cyan);">★★★★★</div>
+        <p class="text-sm italic mb-4" style="color:var(--chrome-1);">“Fast, clean, and built to convert. We went from barely any website traffic to ranking for niche keywords and booking calls every week.”</p>
+        <div class="mono text-xs" style="color:var(--chrome-3);">— Jason M., San Diego, CA</div>
+      </div>
+    </div>
+</section>
+
+<div class="divider-chrome"></div>
+
+<!-- ═══════════════════════════════════════════════
+     WEB DESIGN SERVICES
+═══════════════════════════════════════════════ -->
+<section id="webdesign" style="background:linear-gradient(180deg,#0a1628 0%,#0d2847 50%,#0a1628 100%);" class="py-24 relative overflow-hidden">
+  
+  <!-- Background grid -->
+  <div class="absolute inset-0 grid-bg opacity-40"></div>
+
+  <!-- Decorative circuit lines -->
+  <div class="circuit-line" style="top:15%;width:50%;left:0;animation-delay:0.5s;"></div>
+  <div class="circuit-line" style="top:70%;width:60%;left:10%;animation-delay:1.8s;"></div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+
+    <!-- ── SECTION HEADER ── -->
+    <div class="text-center mb-16 reveal">
+      <h2 class="brand-font text-5xl md:text-7xl" style="color:#fff;">WEB DESIGN</h2>
+      <div class="mono text-xs mb-3" style="color:var(--accent-cyan);letter-spacing:0.2em;">THAT WORKS</div>
+      <div class="divider-chrome mx-auto mt-6" style="width:200px;"></div>
+    </div>
+
+    <!-- ── HERO SPLIT: DEVICE MOCKUP + INTRO COPY ── -->
+    <div class="grid md:grid-cols-2 gap-16 items-center mb-24">
+
+      <!-- LEFT — Device stack illustration -->
+      <div class="wd-device-stack reveal-left">
+
+        <!-- Outer glow -->
+        <div class="absolute" style="width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(33,150,243,0.12) 0%,transparent 70%);pointer-events:none;"></div>
+
+        <!-- Desktop monitor -->
+        <div style="display:flex;flex-direction:column;align-items:center;position:relative;z-index:2;">
+          <div class="wd-screen wd-desktop" style="padding:14px 14px 10px;">
+            <!-- Fake browser chrome -->
+            <div style="display:flex;align-items:center;gap:5px;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid rgba(0,229,255,0.15);">
+              <div style="width:7px;height:7px;border-radius:50%;background:#ef4444;opacity:.7;"></div>
+              <div style="width:7px;height:7px;border-radius:50%;background:#f59e0b;opacity:.7;"></div>
+              <div style="width:7px;height:7px;border-radius:50%;background:#22c55e;opacity:.7;"></div>
+              <div style="flex:1;height:12px;background:rgba(0,229,255,0.08);border:1px solid rgba(0,229,255,0.15);border-radius:2px;margin-left:6px;display:flex;align-items:center;padding:0 6px;">
+                <div class="wd-code-line" style="font-size:8px;color:rgba(0,229,255,0.5);">uncleducky.org</div>
+              </div>
+            </div>
+            <!-- Fake hero content -->
+            <div class="wd-ui-bar full" style="height:10px;margin-bottom:8px;"></div>
+            <div class="wd-ui-bar med" style="height:7px;"></div>
+            <div class="wd-ui-bar short" style="height:7px;"></div>
+            <div class="wd-ui-block" style="margin-top:10px;"></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:5px;">
+              <div class="wd-ui-block" style="height:28px;margin-bottom:0;"></div>
+              <div class="wd-ui-block" style="height:28px;margin-bottom:0;"></div>
+            </div>
+            <div class="wd-ui-btn"></div>
+          </div>
+          <div class="wd-desktop-stand"></div>
+          <div class="wd-desktop-base"></div>
+        </div>
+
+        <!-- Tablet -->
+        <div class="wd-screen wd-tablet" style="padding:10px 8px;">
+          <div style="height:4px;width:30px;background:rgba(0,229,255,0.2);border-radius:2px;margin:0 auto 8px;"></div>
+          <div class="wd-ui-bar full" style="height:5px;"></div>
+          <div class="wd-ui-bar med" style="height:5px;"></div>
+          <div class="wd-ui-block" style="height:50px;margin-top:8px;"></div>
+          <div class="wd-ui-bar short" style="height:4px;margin-top:8px;"></div>
+          <div class="wd-ui-bar med" style="height:4px;"></div>
+          <div class="wd-ui-btn" style="height:14px;width:70%;margin-top:10px;"></div>
+        </div>
+
+        <!-- Phone -->
+        <div class="wd-screen wd-phone" style="padding:8px 6px;">
+          <div style="height:3px;width:20px;background:rgba(0,229,255,0.2);border-radius:2px;margin:0 auto 6px;"></div>
+          <div class="wd-ui-bar full" style="height:4px;"></div>
+          <div class="wd-ui-bar med" style="height:4px;"></div>
+          <div class="wd-ui-block" style="height:36px;margin-top:6px;"></div>
+          <div class="wd-ui-bar short dim" style="height:3px;margin-top:6px;"></div>
+          <div class="wd-ui-bar full dim" style="height:3px;"></div>
+          <div class="wd-ui-btn" style="height:12px;width:80%;margin-top:8px;"></div>
+        </div>
+
+        <!-- Floating label badges -->
+        <div class="card-glass absolute px-3 py-2 mono text-xs" style="color:var(--accent-cyan);top:10px;left:10px;animation:duckBob 4s ease-in-out infinite;">
+          MOBILE FIRST ✓
+        </div>
+        <div class="card-glass absolute px-3 py-2 mono text-xs" style="color:var(--accent-cyan);bottom:60px;left:0;animation:duckBob 5.5s ease-in-out infinite 0.6s;">
+          LIGHTNING FAST ✓
+        </div>
+
+      </div>
+
+      <!-- RIGHT — Copy -->
+      <div class="reveal-right">
+        <div class="mono text-xs mb-4" style="color:var(--accent-cyan);letter-spacing:.15em;">WHY YOUR BUSINESS NEEDS THIS</div>
+        <h3 class="brand-font text-4xl md:text-5xl mb-6" style="color:#fff;line-height:1.1;">
+          YOUR CUSTOMERS ARE ON THEIR PHONES.<br>
+          <span style="color:var(--accent-cyan);">IS YOUR SITE READY?</span>
+        </h3>
+        <p class="mb-6 leading-relaxed" style="color:var(--chrome-2);">
+          Over <strong style="color:#fff;">60% of web traffic</strong> is mobile. If your site isn't fast, 
+          responsive, and built for every screen size — you're losing customers before they ever read a word.
+        </p>
+        <p class="leading-relaxed mb-8" style="color:var(--chrome-2);">
+          Uncle Ducky builds clean, conversion-focused websites <strong style="color:#fff;">efficiently, reliably, and with zero headaches for you.</strong>
+        </p>
+
+        <!-- Mini feature list -->
+        <div class="space-y-3">
+          <div class="wd-check">
+            <div class="wd-check-icon">✓</div>
+            <span><strong style="color:#fff;">Fully responsive</strong> — looks perfect on phone, tablet, and desktop</span>
+          </div>
+          <div class="wd-check">
+            <div class="wd-check-icon">✓</div>
+            <span><strong style="color:#fff;">SEO optimized</strong> — built to rank in local search from day one</span>
+          </div>
+          <div class="wd-check">
+            <div class="wd-check-icon">✓</div>
+            <span><strong style="color:#fff;">Fast turnaround</strong> — most sites delivered in 5–7 business days</span>
+          </div>
+          <div class="wd-check">
+            <div class="wd-check-icon">✓</div>
+            <span><strong style="color:#fff;">Contact forms included</strong> — capture leads from day one</span>
+          </div>
+          <div class="wd-check">
+            <div class="wd-check-icon">✓</div>
+            <span><strong style="color:#fff;">No bloated page builders</strong> — clean, hand-crafted code that loads fast</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── TURNAROUND HIGHLIGHT ── -->
+    <div class="reveal mb-24">
+      <div class="stat-card p-8 md:p-12" style="border-radius:8px;">
+        <div class="grid md:grid-cols-3 gap-10 items-center">
+
+          <!-- Left — Turnaround badge -->
+          <div class="flex flex-col items-center text-center">
+            <div class="wd-badge-ring mb-4">
+              <div>
+                <div class="brand-font text-5xl leading-none" style="color:var(--accent-cyan);">5</div>
+                <div class="mono text-xs" style="color:var(--chrome-3);letter-spacing:.1em;">DAYS</div>
+              </div>
+            </div>
+            <div class="brand-font text-xl" style="color:#fff;">AVG. TURNAROUND</div>
+            <div class="mono text-xs mt-1" style="color:var(--chrome-3);">FROM BRIEF TO LIVE SITE</div>
+          </div>
+
+          <!-- Middle — Timeline -->
+          <div class="md:col-span-2">
+            <div class="mono text-xs mb-6" style="color:var(--accent-cyan);letter-spacing:.2em;">TYPICAL PROJECT TIMELINE</div>
+            <div class="wd-timeline">
+              <div class="wd-timeline-item">
+                <div class="wd-timeline-dot"></div>
+                <div class="wd-timeline-day">DAY 1</div>
+                <div class="wd-timeline-title">Discovery Call &amp; Brief</div>
+                <div class="wd-timeline-desc">We learn your business, goals, and audience. You tell us what you need — we handle the rest.</div>
+              </div>
+              <div class="wd-timeline-item">
+                <div class="wd-timeline-dot"></div>
+                <div class="wd-timeline-day">DAYS 2–3</div>
+                <div class="wd-timeline-title">Design &amp; Build</div>
+                <div class="wd-timeline-desc">Full design and development — responsive, fast-loading, SEO-ready. No templates. No shortcuts.</div>
+              </div>
+              <div class="wd-timeline-item">
+                <div class="wd-timeline-dot"></div>
+                <div class="wd-timeline-day">DAY 4</div>
+                <div class="wd-timeline-title">Your Review &amp; Revisions</div>
+                <div class="wd-timeline-desc">You see the site. We incorporate your feedback — typically one clean round of revisions.</div>
+              </div>
+              <div class="wd-timeline-item">
+                <div class="wd-timeline-dot"></div>
+                <div class="wd-timeline-day">DAY 5–7</div>
+                <div class="wd-timeline-title">Launch Day 🚀</div>
+                <div class="wd-timeline-desc">Site goes live. You get full ownership of all files, code, and assets. No lock-in. Ever.</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ── FEATURE CARDS ROW ── -->
+    <div class="grid md:grid-cols-3 gap-6 mb-24">
+
+      <div class="wd-feature reveal" style="transition-delay:.1s;">
+        <div class="text-4xl mb-4">📱</div>
+        <h4 class="brand-font text-xl mb-3" style="color:var(--accent-cyan);">MOBILE-FIRST DESIGN</h4>
+        <p class="text-sm leading-relaxed" style="color:var(--chrome-2);">
+          Every site we build is designed on mobile first, then scaled up — not the other way around. 
+          That means your site is buttery smooth on every phone, every time.
+        </p>
+        <div class="mt-4 pt-4" style="border-top:1px solid rgba(0,229,255,.1);">
+          <div class="mono text-xs" style="color:var(--chrome-3);">TESTED ON</div>
+          <div class="flex gap-2 mt-2 flex-wrap">
+            <span class="mono text-xs px-2 py-1" style="background:rgba(0,229,255,.08);border:1px solid rgba(0,229,255,.2);color:var(--chrome-1);">iOS</span>
+            <span class="mono text-xs px-2 py-1" style="background:rgba(0,229,255,.08);border:1px solid rgba(0,229,255,.2);color:var(--chrome-1);">Android</span>
+            <span class="mono text-xs px-2 py-1" style="background:rgba(0,229,255,.08);border:1px solid rgba(0,229,255,.2);color:var(--chrome-1);">iPad</span>
+            <span class="mono text-xs px-2 py-1" style="background:rgba(0,229,255,.08);border:1px solid rgba(0,229,255,.2);color:var(--chrome-1);">Desktop</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="wd-feature reveal" style="transition-delay:.25s;">
+        <div class="text-4xl mb-4">⚡</div>
+        <h4 class="brand-font text-xl mb-3" style="color:var(--accent-cyan);">BLAZING FAST LOAD TIMES</h4>
+        <p class="text-sm leading-relaxed" style="color:var(--chrome-2);">
+          Slow sites lose customers. We hand-code clean, lightweight HTML — no bloated WordPress plugins, 
+          no heavy page builders. Just fast, lean code that Google loves.
+        </p>
+        <div class="mt-4 pt-4" style="border-top:1px solid rgba(0,229,255,.1);">
+          <div class="mono text-xs mb-2" style="color:var(--chrome-3);">TYPICAL PAGESPEED SCORE</div>
+          <div style="height:6px;border-radius:3px;background:rgba(255,255,255,.08);">
+            <div style="width:94%;height:100%;border-radius:3px;background:linear-gradient(90deg,var(--blue-electric),var(--accent-cyan));"></div>
+          </div>
+          <div class="mono text-xs mt-1" style="color:var(--accent-cyan);">90–100 / 100</div>
+        </div>
+      </div>
+
+      <div class="wd-feature reveal" style="transition-delay:.4s;">
+        <div class="text-4xl mb-4">🎯</div>
+        <h4 class="brand-font text-xl mb-3" style="color:var(--accent-cyan);">BUILT TO CONVERT</h4>
+        <p class="text-sm leading-relaxed" style="color:var(--chrome-2);">
+          Every button, headline, and layout decision is made with one goal: turning visitors into 
+          customers. CTAs, contact forms, and lead capture built in from the start.
+        </p>
+        <div class="mt-4 pt-4" style="border-top:1px solid rgba(0,229,255,.1);">
+          <div class="mono text-xs mb-2" style="color:var(--chrome-3);">ALWAYS INCLUDED</div>
+          <div class="mono text-xs" style="color:var(--chrome-1);line-height:1.8;">
+            Contact Forms &nbsp;•&nbsp; CTAs<br>
+            Google Analytics &nbsp;•&nbsp; Schema SEO
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── CODE WINDOW EASTER EGG ── -->
+    <div class="reveal mb-24">
+      <div style="background:#060e1a;border:1px solid rgba(0,229,255,.2);border-radius:8px;overflow:hidden;">
+        <!-- Fake terminal header -->
+        <div style="background:#0d2847;padding:10px 16px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(0,229,255,.15);">
+          <div style="width:10px;height:10px;border-radius:50%;background:#ef4444;opacity:.8;"></div>
+          <div style="width:10px;height:10px;border-radius:50%;background:#f59e0b;opacity:.8;"></div>
+          <div style="width:10px;height:10px;border-radius:50%;background:#22c55e;opacity:.8;"></div>
+          <span class="mono text-xs ml-4" style="color:var(--chrome-3);">uncle-ducky-web-design.js</span>
+        </div>
+        <!-- Code content -->
+        <div style="padding:24px 28px;">
+          <div class="wd-code-line"><span class="cm">// Uncle Ducky Web Design — What you get:</span></div>
+          <div class="wd-code-line"><span class="kw">const</span> yourNewWebsite = {</div>
+          <div class="wd-code-line" style="padding-left:24px;">responsive: &nbsp;&nbsp;&nbsp;&nbsp;<span class="val">true</span>, &nbsp;&nbsp;<span class="cm">// works on every device</span></div>
+          <div class="wd-code-line" style="padding-left:24px;">mobileFirst: &nbsp;&nbsp;<span class="val">true</span>, &nbsp;&nbsp;<span class="cm">// designed for phones first</span></div>
+          <div class="wd-code-line" style="padding-left:24px;">seoReady: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="val">true</span>, &nbsp;&nbsp;<span class="cm">// rank in local search</span></div>
+          <div class="wd-code-line" style="padding-left:24px;">turnaround: &nbsp;&nbsp;&nbsp;<span class="str">'5–7 days'</span>, <span class="cm">// seriously</span></div>
+          <div class="wd-code-line" style="padding-left:24px;">lockedIn: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="val">false</span>, &nbsp;<span class="cm">// you own everything</span></div>
+          <div class="wd-code-line" style="padding-left:24px;">headaches: &nbsp;&nbsp;&nbsp;&nbsp;<span class="val">0</span>, &nbsp;&nbsp;&nbsp;&nbsp;<span class="cm">// none. zero. zilch.</span></div>
+          <div class="wd-code-line" style="padding-left:24px;">price: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">'affordable'</span> <span class="cm">// see below</span></div>
+          <div class="wd-code-line">};</div>
+          <div class="wd-code-line mt-2"><span class="cm">// Ready to get started?</span></div>
+          <div class="wd-code-line"><span class="kw">uncleducky</span>.<span class="str">buildYourSite</span>(); <span style="display:inline-block;width:8px;height:14px;background:var(--accent-cyan);animation:blinkCaret .8s step-end infinite;vertical-align:middle;margin-left:2px;"></span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PRICING CARD ── -->
+    <div class="grid md:grid-cols-2 gap-8 mb-16">
+
+      <!-- Price card -->
+      <div class="wd-price-card p-8 reveal" style="transition-delay:.1s;">
+        <div class="wd-price-from">STARTING FROM</div>
+        <div class="wd-price-num">$499</div>
+        <div class="mono text-xs mb-8" style="color:var(--chrome-3);letter-spacing:.1em;">ONE-TIME — YOU OWN IT FOREVER</div>
+        <div class="space-y-1">
+          <div class="wd-check"><div class="wd-check-icon">✓</div><span>Fully custom responsive design</span></div>
+          <div class="wd-check"><div class="wd-check-icon">✓</div><span>Mobile, tablet &amp; desktop optimized</span></div>
+          <div class="wd-check"><div class="wd-check-icon">✓</div><span>Contact form &amp; lead capture</span></div>
+          <div class="wd-check"><div class="wd-check-icon">✓</div><span>On-page SEO &amp; schema markup</span></div>
+          <div class="wd-check"><div class="wd-check-icon">✓</div><span>Google Analytics setup</span></div>
+          <div class="wd-check"><div class="wd-check-icon">✓</div><span>5–7 day delivery</span></div>
+          <div class="wd-check"><div class="wd-check-icon">✓</div><span>Full source code ownership</span></div>
+          <div class="wd-check"><div class="wd-check-icon">✓</div><span>1 round of revisions included</span></div>
+        </div>
+      </div>
+
+      <!-- What sets us apart -->
+      <div class="reveal" style="transition-delay:.25s;">
+        <div class="mono text-xs mb-4" style="color:var(--accent-cyan);letter-spacing:.15em;">WHAT MAKES US DIFFERENT</div>
+        <h3 class="brand-font text-3xl mb-6" style="color:#fff;">NO AGENCIES.<br>NO MIDDLEMEN.<br>NO MARKUPS.</h3>
+        <p class="text-sm leading-relaxed mb-6" style="color:var(--chrome-2);">
+          Most web agencies subcontract your project overseas, mark it up 400%, 
+          and hand it back in 6 weeks. We build it ourselves, in-house, fast — 
+          and you get the same award-winning quality you're looking at right now.
+        </p>
+        <p class="text-sm leading-relaxed mb-8" style="color:var(--chrome-2);">
+          This site? <strong style="color:#fff;">We built it.</strong> If you like what you see, 
+          let's talk about building yours.
+        </p>
+        <div class="stat-card p-4" style="border-radius:6px;">
+          <div class="flex items-center gap-3">
+            <div class="w-3 h-3 rounded-full bg-green-400 flex-shrink-0" style="animation:pulse 1.5s infinite;"></div>
+            <p class="mono text-xs" style="color:var(--accent-cyan);">⚡ CURRENTLY ACCEPTING NEW CLIENTS — LIMITED AVAILABILITY</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── WEB DESIGN CTA ── -->
+    <div class="text-center reveal">
+      <h3 class="brand-font text-4xl md:text-5xl mb-4" style="color:#fff;">
+        READY FOR A SITE THAT<br>
+        <span style="color:var(--accent-cyan);">ACTUALLY WORKS?</span>
+      </h3>
+      <p class="mb-8" style="color:var(--chrome-2);">Tell us about your business. We'll get back to you within 24 hours with a plan.</p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="#contact" class="btn-primary text-lg"><span>🖥️ GET A FREE QUOTE →</span></a>
+        <a href="tel:+18045570913" class="btn-chrome text-lg">(914) 488-4128</a>
+      </div>
+      <p class="mono text-xs mt-4" style="color:var(--chrome-3);">FREE CONSULTATION &nbsp;•&nbsp; NO OBLIGATION &nbsp;•&nbsp; RESPONSE WITHIN 24 HOURS</p>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider-chrome"></div>
+
+<!-- ═══════════════════════════════════════════════
+     EMAIL CAPTURE / CONTACT
+═══════════════════════════════════════════════ -->
+<section id="contact" class="py-24 relative overflow-hidden" style="background:linear-gradient(135deg,#0a1628 0%,#0d2847 50%,#0a1628 100%);">
+  <div class="absolute inset-0 grid-bg opacity-30"></div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" style="width:600px;height:600px;border-radius:50%;background:radial-gradient(circle, rgba(0,229,255,0.05) 0%, transparent 70%);pointer-events:none;"></div>
+
+  <div class="max-w-3xl mx-auto px-6 relative z-10">
+    <div class="text-center mb-12 reveal">
+      <div class="inline-block duck-bob mb-4">
+        <img src="https://cybermasher.github.io/uncleducky/images/logo.png" alt="Uncle Ducky" style="width:80px;height:80px;object-fit:contain;filter:drop-shadow(0 0 15px rgba(0,229,255,0.5));">
+      </div>
+      <div class="mono text-xs mb-3" style="color:var(--accent-cyan);letter-spacing:0.2em;">ONE FORM. ZERO HASSLE.</div>
+      <h2 class="brand-font text-4xl md:text-6xl mb-4" style="color:#fff;">TIME TO LEVEL-UP</h2>
+      <p style="color:var(--chrome-2);">Ready for a high-performance web presence or a custom AI strategy? Hit us up! 👇</p>
+    </div>
+
+    <div class="card-glass p-8 md:p-12 reveal">
+      <form id="contactForm">
+        <!-- Honeypot — hidden from humans, bots fill it automatically -->
+<div style="position:absolute;left:-9999px;top:-9999px;opacity:0;" aria-hidden="true">
+  <label for="website_url">Leave this blank</label>
+  <input type="text" id="website_url" name="website_url" tabindex="-1" autocomplete="off">
+</div>
+        <div class="grid md:grid-cols-2 gap-6 mb-6">
+          <div>
+            <label class="mono text-xs block mb-2" style="color:var(--accent-cyan);">FULL NAME *</label>
+            <input type="text" name="name" class="form-input" placeholder="First & Last Name" required>
+          </div>
+          <div>
+            <label class="mono text-xs block mb-2" style="color:var(--accent-cyan);">EMAIL *</label>
+            <input type="email" name="email" class="form-input" placeholder="you@email.com" required>
+          </div>
+        </div>
+        <div class="mb-6">
+          <label class="mono text-xs block mb-2" style="color:var(--accent-cyan);">TELL US MORE ABOUT YOUR PROJECT *</label>
+          <textarea class="form-input" name="items" rows="4" placeholder="e.g., Looking to redesign my website at www.mysite.com..." required style="resize:vertical;"></textarea>
+        </div>
+
+        <div class="mb-6">
+          <label class="mono text-xs block mb-3" style="color:var(--accent-cyan);">PRIMARY SERVICE NEEDED</label>
+          <div class="flex flex-wrap gap-4">
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="pickup" value="Web Design" checked style="accent-color:var(--accent-cyan);">
+              <span class="text-sm" style="color:var(--chrome-1);">Web Design</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="pickup" value="Ai Strategy" style="accent-color:var(--accent-cyan);">
+              <span class="text-sm" style="color:var(--chrome-1);">AI Strategy</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="pickup" value="System Architecture" style="accent-color:var(--accent-cyan);">
+              <span class="text-sm" style="color:var(--chrome-1);">System Architecture</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- ── PHOTO UPLOAD ── -->
+        <div class="mb-8">
+          <label class="mono text-xs block mb-2" style="color:var(--accent-cyan);">
+            PHOTOS OF DESIGNS YOU LOVE!
+            <span style="color:var(--chrome-3);"> — OPTIONAL, HELPS US PREPARE</span>
+          </label>
+          <div class="upload-zone" id="uploadZone">
+            <input type="file" id="photoInput" accept="image/*" multiple>
+            <div class="upload-icon">📷</div>
+            <div class="upload-title">TAP TO UPLOAD OR TAKE A PHOTO</div>
+            <div class="upload-subtitle">
+              DRAG &amp; DROP ALSO WORKS &nbsp;•&nbsp;
+              <span>UP TO 5 PHOTOS</span> &nbsp;•&nbsp; JPG, PNG, HEIC
+            </div>
+          </div>
+          <div class="preview-grid" id="previewGrid"></div>
+          <div class="upload-count" id="uploadCount"></div>
+        </div>
+        <div class="g-recaptcha" data-sitekey="6LerRdQsAAAAAHWOq9WckGZ8N4dUwdqrEQhuVvh0"></div><br>
+
+        <!-- ── URGENCY NUDGE ── -->
+        <div class="mb-8 p-4 rounded" style="background:rgba(0,229,255,0.08);border:1px solid rgba(0,229,255,0.2);">
+          <div class="flex items-center gap-3">
+            <div class="w-3 h-3 rounded-full bg-green-400 flex-shrink-0" style="animation:pulse 1.5s infinite;"></div>
+            <p class="mono text-xs" style="color:var(--accent-cyan);">⚡ WE ARE STILL ACCEPTING NEW CLIENTS — SPOTS ARE LIMITED</p>
+          </div>
+        </div>
+
+        <!-- ── SUBMIT BUTTON ── -->
+        <button type="submit" id="submitBtn" class="btn-primary w-full text-center text-lg" style="justify-content:center;">
+          <span id="submitLabel">🦆 SCHEDULE MY FREE CONSULTATION! →</span>
+        </button>
+
+        <!-- ── SENDING STATE ── -->
+        <div id="sendingState" class="hidden text-center mt-4">
+          <div class="mono text-xs" style="color:var(--accent-cyan);">
+            <span id="sendingMsg">SENDING YOUR REQUEST...</span>
+          </div>
+          <div style="width:100%;height:3px;background:rgba(255,255,255,0.1);border-radius:2px;margin-top:0.75rem;overflow:hidden;">
+            <div id="sendingBar" style="height:100%;width:0%;background:linear-gradient(90deg,var(--blue-electric),var(--accent-cyan));border-radius:2px;transition:width 0.4s ease;"></div>
+          </div>
+        </div>
+      </form>
+
+      <!-- ── SUCCESS MESSAGE ── -->
+      <div id="successMsg" class="hidden text-center py-8">
+        <div class="text-6xl mb-4 duck-bob inline-block">🦆</div>
+        <h3 class="brand-font text-3xl mb-3" style="color:var(--accent-cyan);">YOU'RE ALL SET!</h3>
+        <p style="color:var(--chrome-2);">We'll be in touch within 24 hours.<br>Check your email — a confirmation is on its way.</p>
+      </div>
+
+      <!-- ── ERROR MESSAGE ── -->
+      <div id="errorMsg" class="hidden text-center py-4 mt-4 rounded" style="background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);">
+        <p class="mono text-xs" style="color:#f87171;">⚠️ SOMETHING WENT WRONG. PLEASE TRY AGAIN OR CALL US DIRECTLY AT (804) 557-0913.</p>
+      </div>
+
+    </div><!-- /.card-glass -->
+
+    <!-- Trust signals -->
+    <div class="mt-8 grid grid-cols-3 gap-4 text-center reveal">
+      <div class="mono text-xs" style="color:var(--chrome-3);">
+        <div class="text-lg mb-1">🔒</div>NO SPAM EVER
+      </div>
+      <div class="mono text-xs" style="color:var(--chrome-3);">
+        <div class="text-lg mb-1">📋</div>YOUR INFO STAYS PRIVATE
+      </div>
+      <div class="mono text-xs" style="color:var(--chrome-3);">
+        <div class="text-lg mb-1">🆓</div>FREE CONSULTATION
+      </div>
+    </div>
+  </div>
+</section>
+  
+<!-- ═══════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════ -->
+<footer style="background:#060e1a; border-top:1px solid rgba(0,229,255,0.1);" class="py-12">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="mono text-xs" style="color:var(--chrome-3);text-align:center">© 2026 Uncle Ducky, All Rights Reserved</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════════ -->
+<script>
+// Optimized Loader Script
+window.addEventListener('load', () => {
+  const loader = document.getElementById('loader');
+  loader.style.opacity = '0';
+  setTimeout(() => {
+    loader.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }, 500);
+});
+
+// ── PARTICLES ──
+const pContainer = document.getElementById('particles');
+for (let i = 0; i < 30; i++) {
+  const p = document.createElement('div');
+  p.className = 'particle';
+  p.style.left = Math.random() * 100 + '%';
+  p.style.animationDuration = (6 + Math.random() * 10) + 's';
+  p.style.animationDelay = (Math.random() * 8) + 's';
+  p.style.width = p.style.height = (1 + Math.random() * 3) + 'px';
+  pContainer.appendChild(p);
+}
+
+// ── NAVBAR SCROLL ──
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 80);
+});
+
+// ── MOBILE MENU ──
+document.getElementById('menuBtn').addEventListener('click', () => {
+  document.getElementById('mobileMenu').classList.toggle('hidden');
+});
+
+// ── CLOSE MOBILE MENU ON LINK CLICK ──
+document.querySelectorAll('#mobileMenu a').forEach(link => {
+  link.addEventListener('click', () => document.getElementById('mobileMenu').classList.add('hidden'));
+});
+
+// ── REVEAL ON SCROLL ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
+
+// ── COUNTERS ──
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    const target = parseInt(el.dataset.target);
+    if (target === 0) { el.textContent = '0'; return; }
+    const duration = 2000;
+    const step = target / (duration / 16);
+    let current = 0;
+    const timer = setInterval(() => {
+      current = Math.min(current + step, target);
+      el.textContent = Math.floor(current).toLocaleString() + (target >= 1000 ? '+' : (target === 100 ? '%' : ''));
+      if (current >= target) clearInterval(timer);
+    }, 16);
+    counterObserver.unobserve(el);
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe(el));
+
+// ══════════════════════════════════════════════
+// UNCLE DUCKY — CONTACT FORM
+// ══════════════════════════════════════════════
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwdTzkP3LhvTRM4hIGaqTw3_GadrrOAHtBfU_0hx6Uc0ugLtRqbla_miCJDyBkuegZE/exec';
+
+// ── PHOTO UPLOAD LOGIC ──
+const uploadZone  = document.getElementById('uploadZone');
+const photoInput  = document.getElementById('photoInput');
+const previewGrid = document.getElementById('previewGrid');
+const uploadCount = document.getElementById('uploadCount');
+const MAX_PHOTOS  = 5;
+let uploadedFiles = [];
+
+photoInput.addEventListener('change', handleFiles);
+
+uploadZone.addEventListener('dragover', e => {
+  e.preventDefault();
+  uploadZone.classList.add('dragover');
+});
+uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('dragover'));
+uploadZone.addEventListener('drop', e => {
+  e.preventDefault();
+  uploadZone.classList.remove('dragover');
+  handleFiles({ target: { files: e.dataTransfer.files } });
+});
+
+function handleFiles(e) {
+  const files = Array.from(e.target.files);
+  const toAdd = files.slice(0, MAX_PHOTOS - uploadedFiles.length);
+  toAdd.forEach(file => {
+    if (!file.type.startsWith('image/')) return;
+    uploadedFiles.push(file);
+    const reader = new FileReader();
+    reader.onload = ev => addPreview(ev.target.result, uploadedFiles.length - 1);
+    reader.readAsDataURL(file);
+  });
+  updateCount();
+  photoInput.value = '';
+}
+
+function addPreview(src, index) {
+  const item = document.createElement('div');
+  item.className = 'preview-item';
+  item.dataset.index = index;
+  item.innerHTML = `
+    <img src="${src}" alt="Tech photo ${index + 1}">
+    <button type="button" class="preview-remove" onclick="removePhoto(${index})">✕</button>
+  `;
+  previewGrid.appendChild(item);
+}
+
+function removePhoto(index) {
+  uploadedFiles.splice(index, 1);
+  previewGrid.innerHTML = '';
+  uploadedFiles.forEach((file, i) => {
+    const reader = new FileReader();
+    reader.onload = ev => addPreview(ev.target.result, i);
+    reader.readAsDataURL(file);
+  });
+  updateCount();
+}
+
+function updateCount() {
+  const n = uploadedFiles.length;
+  uploadCount.style.display      = n > 0 ? 'block' : 'none';
+  uploadCount.textContent        = `${n} PHOTO${n !== 1 ? 'S' : ''} ATTACHED`;
+  uploadZone.style.opacity       = n >= MAX_PHOTOS ? '0.5' : '1';
+  uploadZone.style.pointerEvents = n >= MAX_PHOTOS ? 'none' : 'auto';
+}
+
+// ── READ ALL PHOTOS AS BASE64 ──
+function readFilesAsBase64(files) {
+  return Promise.all(files.map(file => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload  = e => resolve({ name: file.name, type: file.type, data: e.target.result });
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  })));
+}
+
+// ── PROGRESS BAR ANIMATION ──
+function animateProgress(targetPct, duration = 800) {
+  const bar   = document.getElementById('sendingBar');
+  const msg   = document.getElementById('sendingMsg');
+  const start = parseFloat(bar.style.width) || 0;
+  const diff  = targetPct - start;
+  const steps = duration / 16;
+  let step    = 0;
+  const messages = {
+    30:  'COMPRESSING PHOTOS...',
+    60:  'UPLOADING TO UNCLE DUCKY...',
+    90:  'ALMOST THERE...',
+    100: 'SENT! 🦆'
+  };
+  const timer = setInterval(() => {
+    step++;
+    const pct = start + diff * (step / steps);
+    bar.style.width = pct + '%';
+    Object.entries(messages).forEach(([threshold, text]) => {
+      if (pct >= threshold) msg.textContent = text;
+    });
+    if (step >= steps) clearInterval(timer);
+  }, 16);
+}
+
+// ── FORM SUBMISSION ──
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const form      = this;
+  const submitBtn = document.getElementById('submitBtn');
+  const sending   = document.getElementById('sendingState');
+  const errorMsg  = document.getElementById('errorMsg');
+
+  // ── HONEYPOT CHECK ──
+  if (document.getElementById('website_url').value !== '') {
+    return; // Bot detected — silently do nothing
+  }
+
+  // ── RECAPTCHA VALIDATION ──
+  const recaptchaResponse = grecaptcha.getResponse();
+  if (!recaptchaResponse) {
+    errorMsg.classList.remove('hidden');
+    errorMsg.querySelector('p').textContent = '⚠️ PLEASE COMPLETE THE "I\'M NOT A ROBOT" CHECK BEFORE SUBMITTING.';
+    return;
+  }
+
+  // Reset error state
+  errorMsg.classList.add('hidden');
+
+  // Disable button, show progress
+  submitBtn.disabled = true;
+  submitBtn.style.opacity = '0.6';
+  sending.classList.remove('hidden');
+  animateProgress(25, 400);
+
+  // ── COLLECT FORM VALUES ──
+  // BUG FIX: payload is now defined BEFORE recaptcha is added to it
+  const payload = {
+    name:     form.querySelector('[name="name"]').value.trim(),
+    email:    form.querySelector('[name="email"]').value.trim(),
+    items:    form.querySelector('[name="items"]').value.trim(),
+    pickup:   form.querySelector('[name="pickup"]:checked').value,
+    honeypot:  document.getElementById('website_url').value,
+    recaptcha: recaptchaResponse,
+    photos:   []
+  };
+
+  // Convert photos to base64
+  if (uploadedFiles.length > 0) {
+    try {
+      animateProgress(60, 1000);
+      payload.photos = await readFilesAsBase64(uploadedFiles);
+    } catch (err) {
+      console.warn('Photo read error:', err);
+    }
+  } else {
+    animateProgress(60, 600);
+  }
+
+  animateProgress(85, 500);
+
+  // ── SEND TO GOOGLE APPS SCRIPT ──
+  try {
+    const formData = new FormData();
+    formData.append('payload', JSON.stringify(payload));
+
+    await fetch(SCRIPT_URL, {
+      method: 'POST',
+      body:   formData,
+      mode:   'no-cors'
+    });
+
+    // no-cors returns opaque response — completed fetch = success
+    animateProgress(100, 300);
+    setTimeout(() => {
+      form.style.display = 'none';
+      sending.classList.add('hidden');
+      document.getElementById('successMsg').classList.remove('hidden');
+      window.scrollTo({ top: document.getElementById('contact').offsetTop, behavior: 'smooth' });
+    }, 600);
+
+  } catch (err) {
+    console.error('Submission error:', err);
+    sending.classList.add('hidden');
+    errorMsg.classList.remove('hidden');
+    errorMsg.querySelector('p').textContent = '⚠️ SOMETHING WENT WRONG. PLEASE TRY AGAIN OR CALL US AT (804) 557-0913.';
+    submitBtn.disabled = false;
+    submitBtn.style.opacity = '1';
+    document.getElementById('sendingBar').style.width = '0%';
+  }
+});
+
+// ── SMOOTH SCROLL ──
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+</body>
+</html>

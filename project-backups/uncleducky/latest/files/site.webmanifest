@@ -1,0 +1,8 @@
+// manifest.webmanifest
+{
+  "icons": [
+    { "images": "/logo-192.png", "type": "image/png", "sizes": "192x192" },
+    { "images": "/logo-mask.png", "type": "image/png", "sizes": "512x512", "purpose": "maskable" },
+    { "images": "/logo-512.png", "type": "image/png", "sizes": "512x512" }
+  ]
+}
